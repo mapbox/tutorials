@@ -47,7 +47,7 @@
 		EB32D4A82CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mapbox Maps for iOS Marker AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB32D4AC2CDE80F3000D4F68 /* Starter_KitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitUITests.swift; sourceTree = "<group>"; };
 		EB32D4AE2CDE80F3000D4F68 /* Starter_KitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EB32D4BE2CDE9003000D4F68 /* Starter-Kit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Starter-Kit-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EB32D4BE2CDE9003000D4F68 /* Marker-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Marker-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EB32D4C32CDEA28D000D4F68 /* MapboxMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxMapView.swift; sourceTree = "<group>"; };
 		EB8EC2F42CE2928800E9221B /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,7 @@
 		EB32D4902CDE80F1000D4F68 /* Marker App */ = {
 			isa = PBXGroup;
 			children = (
-				EB32D4BE2CDE9003000D4F68 /* Starter-Kit-Info.plist */,
+				EB32D4BE2CDE9003000D4F68 /* Marker-App-Info.plist */,
 				EB32D4912CDE80F1000D4F68 /* Marker_App.swift */,
 				EB32D4932CDE80F1000D4F68 /* ContentView.swift */,
 				EB8EC2F42CE2928800E9221B /* DrawerView.swift */,
