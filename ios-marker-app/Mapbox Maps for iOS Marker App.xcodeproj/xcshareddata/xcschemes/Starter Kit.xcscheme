@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EB32D48D2CDE80F1000D4F68"
-               BuildableName = "Mapbox Maps iOS Starter Kit.app"
-               BlueprintName = "Mapbox Maps iOS Starter Kit"
-               ReferencedContainer = "container:Mapbox Maps iOS Starter Kit.xcodeproj">
+               BuildableName = "Mapbox Maps for iOS Marker App.app"
+               BlueprintName = "Mapbox Maps for iOS Marker App"
+               ReferencedContainer = "container:Mapbox Maps for iOS Marker App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EB32D49D2CDE80F3000D4F68"
-               BuildableName = "Mapbox Maps iOS Starter KitTests.xctest"
-               BlueprintName = "Mapbox Maps iOS Starter KitTests"
-               ReferencedContainer = "container:Mapbox Maps iOS Starter Kit.xcodeproj">
+               BuildableName = "Mapbox Maps for iOS Marker AppTests.xctest"
+               BlueprintName = "Mapbox Maps for iOS Marker AppTests"
+               ReferencedContainer = "container:Mapbox Maps for iOS Marker App.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EB32D4A72CDE80F3000D4F68"
-               BuildableName = "Mapbox Maps iOS Starter KitUITests.xctest"
-               BlueprintName = "Mapbox Maps iOS Starter KitUITests"
-               ReferencedContainer = "container:Mapbox Maps iOS Starter Kit.xcodeproj">
+               BuildableName = "Mapbox Maps for iOS Marker AppUITests.xctest"
+               BlueprintName = "Mapbox Maps for iOS Marker AppUITests"
+               ReferencedContainer = "container:Mapbox Maps for iOS Marker App.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EB32D48D2CDE80F1000D4F68"
-            BuildableName = "Mapbox Maps iOS Starter Kit.app"
-            BlueprintName = "Mapbox Maps iOS Starter Kit"
-            ReferencedContainer = "container:Mapbox Maps iOS Starter Kit.xcodeproj">
+            BuildableName = "Mapbox Maps for iOS Marker App.app"
+            BlueprintName = "Mapbox Maps for iOS Marker App"
+            ReferencedContainer = "container:Mapbox Maps for iOS Marker App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EB32D48D2CDE80F1000D4F68"
-            BuildableName = "Mapbox Maps iOS Starter Kit.app"
-            BlueprintName = "Mapbox Maps iOS Starter Kit"
-            ReferencedContainer = "container:Mapbox Maps iOS Starter Kit.xcodeproj">
+            BuildableName = "Mapbox Maps for iOS Marker App.app"
+            BlueprintName = "Mapbox Maps for iOS Marker App"
+            ReferencedContainer = "container:Mapbox Maps for iOS Marker App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

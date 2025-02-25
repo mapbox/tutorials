@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: AppView
 
 @main
-struct Starter_KitApp: App {
+struct MarkerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB32D4922CDE80F1000D4F68 /* Starter_KitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32D4912CDE80F1000D4F68 /* Starter_KitApp.swift */; };
+		EB32D4922CDE80F1000D4F68 /* Marker_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32D4912CDE80F1000D4F68 /* Marker_App.swift */; };
 		EB32D4942CDE80F1000D4F68 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32D4932CDE80F1000D4F68 /* ContentView.swift */; };
 		EB32D4962CDE80F3000D4F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB32D4952CDE80F3000D4F68 /* Assets.xcassets */; };
 		EB32D4992CDE80F3000D4F68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB32D4982CDE80F3000D4F68 /* Preview Assets.xcassets */; };
@@ -37,14 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB32D48E2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mapbox Maps iOS Starter Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB32D4912CDE80F1000D4F68 /* Starter_KitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitApp.swift; sourceTree = "<group>"; };
+		EB32D48E2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mapbox Maps for iOS Marker App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB32D4912CDE80F1000D4F68 /* Marker_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker_App.swift; sourceTree = "<group>"; };
 		EB32D4932CDE80F1000D4F68 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EB32D4952CDE80F3000D4F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB32D4982CDE80F3000D4F68 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EB32D49E2CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mapbox Maps iOS Starter KitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB32D49E2CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mapbox Maps for iOS Marker AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB32D4A22CDE80F3000D4F68 /* Starter_KitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitTests.swift; sourceTree = "<group>"; };
-		EB32D4A82CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mapbox Maps iOS Starter KitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB32D4A82CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mapbox Maps for iOS Marker AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB32D4AC2CDE80F3000D4F68 /* Starter_KitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitUITests.swift; sourceTree = "<group>"; };
 		EB32D4AE2CDE80F3000D4F68 /* Starter_KitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_KitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EB32D4BE2CDE9003000D4F68 /* Starter-Kit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Starter-Kit-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -81,9 +81,9 @@
 		EB32D4852CDE80F1000D4F68 = {
 			isa = PBXGroup;
 			children = (
-				EB32D4902CDE80F1000D4F68 /* Starter Kit */,
-				EB32D4A12CDE80F3000D4F68 /* Starter KitTests */,
-				EB32D4AB2CDE80F3000D4F68 /* Starter KitUITests */,
+				EB32D4902CDE80F1000D4F68 /* Marker App */,
+				EB32D4A12CDE80F3000D4F68 /* Marker AppTests */,
+				EB32D4AB2CDE80F3000D4F68 /* Marker AppUITests */,
 				EB32D48F2CDE80F1000D4F68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,25 +91,25 @@
 		EB32D48F2CDE80F1000D4F68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB32D48E2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit.app */,
-				EB32D49E2CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitTests.xctest */,
-				EB32D4A82CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitUITests.xctest */,
+				EB32D48E2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App.app */,
+				EB32D49E2CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppTests.xctest */,
+				EB32D4A82CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB32D4902CDE80F1000D4F68 /* Starter Kit */ = {
+		EB32D4902CDE80F1000D4F68 /* Marker App */ = {
 			isa = PBXGroup;
 			children = (
 				EB32D4BE2CDE9003000D4F68 /* Starter-Kit-Info.plist */,
-				EB32D4912CDE80F1000D4F68 /* Starter_KitApp.swift */,
+				EB32D4912CDE80F1000D4F68 /* Marker_App.swift */,
 				EB32D4932CDE80F1000D4F68 /* ContentView.swift */,
 				EB8EC2F42CE2928800E9221B /* DrawerView.swift */,
 				EB32D4952CDE80F3000D4F68 /* Assets.xcassets */,
 				EB32D4972CDE80F3000D4F68 /* Preview Content */,
 				EB32D4C32CDEA28D000D4F68 /* MapboxMapView.swift */,
 			);
-			path = "Starter Kit";
+			path = "Marker App";
 			sourceTree = "<group>";
 		};
 		EB32D4972CDE80F3000D4F68 /* Preview Content */ = {
@@ -120,29 +120,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EB32D4A12CDE80F3000D4F68 /* Starter KitTests */ = {
+		EB32D4A12CDE80F3000D4F68 /* Marker AppTests */ = {
 			isa = PBXGroup;
 			children = (
 				EB32D4A22CDE80F3000D4F68 /* Starter_KitTests.swift */,
 			);
-			path = "Starter KitTests";
+			path = "Marker AppTests";
 			sourceTree = "<group>";
 		};
-		EB32D4AB2CDE80F3000D4F68 /* Starter KitUITests */ = {
+		EB32D4AB2CDE80F3000D4F68 /* Marker AppUITests */ = {
 			isa = PBXGroup;
 			children = (
 				EB32D4AC2CDE80F3000D4F68 /* Starter_KitUITests.swift */,
 				EB32D4AE2CDE80F3000D4F68 /* Starter_KitUITestsLaunchTests.swift */,
 			);
-			path = "Starter KitUITests";
+			path = "Marker AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB32D48D2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit */ = {
+		EB32D48D2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB32D4B22CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter Kit" */;
+			buildConfigurationList = EB32D4B22CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker App" */;
 			buildPhases = (
 				EB32D48A2CDE80F1000D4F68 /* Sources */,
 				EB32D48B2CDE80F1000D4F68 /* Frameworks */,
@@ -152,17 +152,17 @@
 			);
 			dependencies = (
 			);
-			name = "Mapbox Maps iOS Starter Kit";
+			name = "Mapbox Maps for iOS Marker App";
 			packageProductDependencies = (
 				EB32D4BC2CDE8EDA000D4F68 /* MapboxMaps */,
 			);
 			productName = "Starter Kit";
-			productReference = EB32D48E2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit.app */;
+			productReference = EB32D48E2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB32D49D2CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitTests */ = {
+		EB32D49D2CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB32D4B52CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter KitTests" */;
+			buildConfigurationList = EB32D4B52CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker AppTests" */;
 			buildPhases = (
 				EB32D49A2CDE80F3000D4F68 /* Sources */,
 				EB32D49B2CDE80F3000D4F68 /* Frameworks */,
@@ -173,14 +173,14 @@
 			dependencies = (
 				EB32D4A02CDE80F3000D4F68 /* PBXTargetDependency */,
 			);
-			name = "Mapbox Maps iOS Starter KitTests";
+			name = "Mapbox Maps for iOS Marker AppTests";
 			productName = "Starter KitTests";
-			productReference = EB32D49E2CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitTests.xctest */;
+			productReference = EB32D49E2CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EB32D4A72CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitUITests */ = {
+		EB32D4A72CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB32D4B82CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter KitUITests" */;
+			buildConfigurationList = EB32D4B82CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker AppUITests" */;
 			buildPhases = (
 				EB32D4A42CDE80F3000D4F68 /* Sources */,
 				EB32D4A52CDE80F3000D4F68 /* Frameworks */,
@@ -191,9 +191,9 @@
 			dependencies = (
 				EB32D4AA2CDE80F3000D4F68 /* PBXTargetDependency */,
 			);
-			name = "Mapbox Maps iOS Starter KitUITests";
+			name = "Mapbox Maps for iOS Marker AppUITests";
 			productName = "Starter KitUITests";
-			productReference = EB32D4A82CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitUITests.xctest */;
+			productReference = EB32D4A82CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +219,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EB32D4892CDE80F1000D4F68 /* Build configuration list for PBXProject "Mapbox Maps iOS Starter Kit" */;
+			buildConfigurationList = EB32D4892CDE80F1000D4F68 /* Build configuration list for PBXProject "Mapbox Maps for iOS Marker App" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -235,9 +235,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB32D48D2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit */,
-				EB32D49D2CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitTests */,
-				EB32D4A72CDE80F3000D4F68 /* Mapbox Maps iOS Starter KitUITests */,
+				EB32D48D2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App */,
+				EB32D49D2CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppTests */,
+				EB32D4A72CDE80F3000D4F68 /* Mapbox Maps for iOS Marker AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,7 +276,7 @@
 				EB32D4942CDE80F1000D4F68 /* ContentView.swift in Sources */,
 				EB32D4C42CDEA28D000D4F68 /* MapboxMapView.swift in Sources */,
 				EB8EC2F52CE2928800E9221B /* DrawerView.swift in Sources */,
-				EB32D4922CDE80F1000D4F68 /* Starter_KitApp.swift in Sources */,
+				EB32D4922CDE80F1000D4F68 /* Marker_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,12 +302,12 @@
 /* Begin PBXTargetDependency section */
 		EB32D4A02CDE80F3000D4F68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EB32D48D2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit */;
+			target = EB32D48D2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App */;
 			targetProxy = EB32D49F2CDE80F3000D4F68 /* PBXContainerItemProxy */;
 		};
 		EB32D4AA2CDE80F3000D4F68 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EB32D48D2CDE80F1000D4F68 /* Mapbox Maps iOS Starter Kit */;
+			target = EB32D48D2CDE80F1000D4F68 /* Mapbox Maps for iOS Marker App */;
 			targetProxy = EB32D4A92CDE80F3000D4F68 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -439,10 +439,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Starter Kit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Marker App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Starter-Kit-Info.plist";
+				INFOPLIST_FILE = "Marker-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -468,10 +468,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Starter Kit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Marker App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Starter-Kit-Info.plist";
+				INFOPLIST_FILE = "Marker-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -505,7 +505,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapbox Maps iOS Starter Kit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mapbox Maps iOS Starter Kit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapbox Maps for iOS Marker App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mapbox Maps for iOS Marker App";
 			};
 			name = Debug;
 		};
@@ -524,7 +524,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapbox Maps iOS Starter Kit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mapbox Maps iOS Starter Kit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapbox Maps for iOS Marker App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Mapbox Maps for iOS Marker App";
 			};
 			name = Release;
 		};
@@ -565,7 +565,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB32D4892CDE80F1000D4F68 /* Build configuration list for PBXProject "Mapbox Maps iOS Starter Kit" */ = {
+		EB32D4892CDE80F1000D4F68 /* Build configuration list for PBXProject "Mapbox Maps for iOS Marker App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB32D4B02CDE80F3000D4F68 /* Debug */,
@@ -574,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB32D4B22CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter Kit" */ = {
+		EB32D4B22CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB32D4B32CDE80F3000D4F68 /* Debug */,
@@ -583,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB32D4B52CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter KitTests" */ = {
+		EB32D4B52CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB32D4B62CDE80F3000D4F68 /* Debug */,
@@ -592,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB32D4B82CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps iOS Starter KitUITests" */ = {
+		EB32D4B82CDE80F3000D4F68 /* Build configuration list for PBXNativeTarget "Mapbox Maps for iOS Marker AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB32D4B92CDE80F3000D4F68 /* Debug */,
