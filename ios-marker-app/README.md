@@ -1,21 +1,21 @@
-## Mapbox Maps SDK for Android Marker App
+## Mapbox Maps SDK for iOS Marker App
 
-This repo is a demo application to help developers understand how to use [Mapbox Maps SDK for Android](https://docs.mapbox.com/android/maps) in an Android application using JetPack Compose.  
+This repo is a demo application to help developers understand how to use [Mapbox Maps SDK for iOS](https://docs.mapbox.com/ios/maps) in an iOS application using SwiftUI.
 
 The app demonstrates basic functionality including:
 
 - Rendering a full screen map (with a custom style)
 - Listening for map events and retrieving map feature data on click
-- Using map [Gestures](https://docs.mapbox.com/android/maps/guides/user-interaction/#listen-for-gesture-events)
-- Rendering feature data in a bottom drawer composable (`BottomSheetScaffold`)
+- Using map [Gestures](https://docs.mapbox.com/ios/maps/guides/user-interaction/gestures/)
+- Rendering feature data in a `DrawerView`
 - Resetting the map view with a UI element
 
  ### Requirements
  - A [Mapbox Account](https://console.mapbox.com) and Access Token
- - Android Studio
+ - xCode
 
 #### Add your Access Token 
-As outlined in the [Install Guide](https://docs.mapbox.com/android/maps/guides/install/) you **must** configure your public token to make requests to Mapbox services.  Find the `res/values/mapbox_access_token.xml` file and replace `YOUR_MAPBOX_ACCESS_TOKEN` with your public token.  Find your token in the [Mapbox Console](https://console.mapbox.com).
+As outlined in the [Install Guide](https://docs.mapbox.com/ios/maps/guides/install/) you **must** configure your public token to make requests to Mapbox services.  Add your access token to the `Marker-App-Info.plist` file and replace `YOUR_MAPBOX_ACCESS_TOKEN` with your public token.  Find your token in the [Mapbox Console](https://console.mapbox.com).
 
 ### Custom Map Style with an Embeded Dataset
 
