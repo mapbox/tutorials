@@ -11,4 +11,4 @@ Each of these projects will be added to the repo according to the list below:
     - Relevant downloading instructions
     - A general synopsis of what the tutorial will do
 - These projects will omit any sensitive information such as Access Tokens, so you will need to replace these elemnents with your own.
-- These projects will abide by to a related git ignore so when you download 
+- This repo will continuously update its git ignore file to accommodate all project types, allowing you to download projects without unnecessary bloat from unneeded files.
