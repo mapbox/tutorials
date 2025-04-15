@@ -1,0 +1,42 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "Bolt Coffee",
+        "address" : "61 Washington Street, Providence, Rhode Island 02903, USA",
+        "phone" : "(401) 214-2080"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.413829, 41.823901]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "Coffee La France",
+        "address" : "73 Empire St, Providence, RI 02903, USA",
+        "phone" : "(401) 454-3380"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.41547, 41.821369]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name" : "White Static",
+        "address" : "711 Westminster St, Providence, RI 02903, USA",
+        "phone" : "(401) 453-3007"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.420072, 41.818567]
+      }
+    }
+  ]
+}
