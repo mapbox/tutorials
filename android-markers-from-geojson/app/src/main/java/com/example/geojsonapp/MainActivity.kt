@@ -11,14 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.mapbox.geojson.Point
 import com.mapbox.maps.extension.compose.MapboxMap
@@ -26,14 +25,10 @@ import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportS
 import com.mapbox.maps.extension.compose.annotation.generated.PointAnnotation
 import com.mapbox.maps.extension.compose.annotation.rememberIconImage
 import com.mapbox.geojson.FeatureCollection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-// Global variables to update ModalBottomSheet with data from GeoJSON when clicking on a marker.
-val locationName = mutableStateOf("none")
-val locationAddress = mutableStateOf("none")
-val locationPhoneNumber = mutableStateOf("none")
-
-public class MainActivity : ComponentActivity()
-{
+public class MainActivity : ComponentActivity() {
     // ModalBottomSheet is an experimental class from Material3, this code may be changed in future updates.
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,11 +36,35 @@ public class MainActivity : ComponentActivity()
 
         setContent {
 
-            val sheetState = rememberModalBottomSheetState()
             var showBottomSheet by remember { mutableStateOf(false) }
 
+            // Global variables to update ModalBottomSheet with data from GeoJSON when clicking on a marker.
+            val locationName = remember {
+                mutableStateOf("none")
+            }
+            val locationAddress = remember {
+                mutableStateOf("none")
+            }
+            val locationPhoneNumber = remember {
+                mutableStateOf("none")
+            }
+
+            var featureCollection: FeatureCollection? by remember {
+                mutableStateOf(null)
+            }
+
             // Grabs the image used for the marker
-                val markerImage = rememberIconImage(key = R.drawable.ic_blue_marker, painter = painterResource(R.drawable.ic_blue_marker))
+            val markerImage = rememberIconImage(
+                resourceId = R.drawable.ic_blue_marker
+            )
+
+            LaunchedEffect(Unit) {
+                // Grabs the GeoJSON file so its data can be accessed to create the markers
+                val geoJson = withContext(Dispatchers.IO) {
+                    assets.open("coffee_shops.geojson").bufferedReader().use { it.readText() }
+                }
+                featureCollection = FeatureCollection.fromJson(geoJson)
+            }
 
             // Creates a mapbox map in the ContentView
             MapboxMap(
@@ -60,15 +79,10 @@ public class MainActivity : ComponentActivity()
                 },
             ) {
 
-                // Grabs the GeoJSON file so its data can be accessed to create the markers
-                val geoJson = assets.open("coffee_shops.geojson").bufferedReader().use { it.readText() }
-                val featureCollection = FeatureCollection.fromJson(geoJson)
-
                 // Iterates through each feature in the FeatureCollection of the GeoJSON, and creates a marker for each.
-                featureCollection.features()?.forEach { feature ->
+                featureCollection?.features()?.forEach { feature ->
                     val geometry = feature.geometry()
                     if (geometry is Point) {
-                        val point = geometry
 
                         // Grabs json data from the GeoJSON file and create jsonObject or jsonArray to access the values
                         val properties = feature.properties()
@@ -77,7 +91,7 @@ public class MainActivity : ComponentActivity()
                         val jsonObjectPhoneNumber = properties?.get("phone")?.asString
 
                         // Creates a PointAnnotation to act as the marker for each business.
-                        PointAnnotation(point = point){
+                        PointAnnotation(point = geometry) {
 
                             //Sets the marker image
                             iconImage = markerImage
@@ -98,21 +112,19 @@ public class MainActivity : ComponentActivity()
             }
 
             // Checks if a marker has been tapped, if so will open the ModalBottomSheet
-            if (showBottomSheet) 
-            {
+            if (showBottomSheet) {
                 ModalBottomSheet(
                     onDismissRequest = {
                         showBottomSheet = false
-                    },
-                    sheetState = sheetState
-                ){
+                    }
+                ) {
                     // Contents of the ModalBottomSheet
 
                     // Aligns the contents of the ModalBottomSheet for better readability
                     Column(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally
-                    ){
+                    ) {
                         // These values update when the marker is selected by querying the GeoJSON
                         // for the related data, and then updating the global variables so the text prints correctly here.
                         Text(locationName.value)
