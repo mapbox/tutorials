@@ -1,52 +1,52 @@
 package com.example.jetpackcomposetest
 
-import android.R.style
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mapbox.api.directions.v5.models.Bearing
 import com.mapbox.api.directions.v5.models.RouteOptions
-import com.mapbox.geojson.Feature
-import com.mapbox.geojson.FeatureCollection
 import com.mapbox.geojson.LineString
 import com.mapbox.geojson.Point
 import com.mapbox.maps.CameraOptions
 import com.mapbox.maps.EdgeInsets
 import com.mapbox.maps.ImageHolder
 import com.mapbox.maps.MapView
+import com.mapbox.maps.extension.compose.DisposableMapEffect
 import com.mapbox.maps.extension.compose.MapEffect
 import com.mapbox.maps.extension.compose.MapboxMap
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportState
-import com.mapbox.maps.extension.compose.style.BooleanValue
-import com.mapbox.maps.extension.compose.style.MapboxStyleComposable
-import com.mapbox.maps.extension.compose.style.sources.GeoJSONData
-import com.mapbox.maps.extension.compose.style.sources.generated.rememberGeoJsonSourceState
-import com.mapbox.maps.extension.compose.style.standard.LightPresetValue
-import com.mapbox.maps.extension.compose.style.standard.MapboxStandardStyle
 import com.mapbox.maps.extension.style.expressions.dsl.generated.interpolate
+import com.mapbox.maps.extension.style.layers.addLayer
+import com.mapbox.maps.extension.style.layers.generated.lineLayer
 import com.mapbox.maps.extension.style.sources.addSource
-import com.mapbox.maps.extension.style.sources.generated.GeoJsonSource
+import com.mapbox.maps.extension.style.sources.generated.geoJsonSource
 import com.mapbox.maps.plugin.LocationPuck2D
 import com.mapbox.maps.plugin.PuckBearing
 import com.mapbox.maps.plugin.locationcomponent.OnIndicatorPositionChangedListener
+import com.mapbox.maps.plugin.locationcomponent.createDefault2DPuck
 import com.mapbox.maps.plugin.locationcomponent.location
+import com.mapbox.maps.plugin.viewport.ViewportStatus
 import com.mapbox.maps.plugin.viewport.data.OverviewViewportStateOptions
+import com.mapbox.maps.plugin.viewport.state.FollowPuckViewportState
 import com.mapbox.navigation.base.ExperimentalPreviewMapboxNavigationAPI
 import com.mapbox.navigation.base.extensions.applyDefaultNavigationOptions
 import com.mapbox.navigation.base.options.NavigationOptions
@@ -54,33 +54,58 @@ import com.mapbox.navigation.base.route.NavigationRoute
 import com.mapbox.navigation.base.route.NavigationRouterCallback
 import com.mapbox.navigation.base.route.RouterFailure
 import com.mapbox.navigation.base.utils.DecodeUtils.completeGeometryToLineString
-import com.mapbox.navigation.base.utils.DecodeUtils.completeGeometryToPoints
 import com.mapbox.navigation.core.MapboxNavigation
+import com.mapbox.navigation.core.directions.session.RoutesObserver
 import com.mapbox.navigation.core.lifecycle.MapboxNavigationApp
 import com.mapbox.navigation.core.lifecycle.MapboxNavigationObserver
 import com.mapbox.navigation.core.lifecycle.requireMapboxNavigation
+import com.mapbox.navigation.core.replay.route.ReplayProgressObserver
 import com.mapbox.navigation.core.replay.route.ReplayRouteMapper
 import com.mapbox.navigation.core.trip.session.LocationMatcherResult
 import com.mapbox.navigation.core.trip.session.LocationObserver
+import com.mapbox.navigation.ui.maps.camera.data.MapboxNavigationViewportDataSource
 import com.mapbox.navigation.ui.maps.location.NavigationLocationProvider
-import java.lang.ref.WeakReference
-
-
-/**
- * Example to showcase usage of runtime styling with compose.
- */
+import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineApi
+import com.mapbox.navigation.ui.maps.route.line.api.MapboxRouteLineView
+import com.mapbox.navigation.ui.maps.route.line.model.MapboxRouteLineApiOptions
+import com.mapbox.navigation.ui.maps.route.line.model.MapboxRouteLineViewOptions
 
 public class MainActivity : ComponentActivity() {
 
+    private lateinit var replayProgressObserver: ReplayProgressObserver
+
+    private lateinit var routeLineApi: MapboxRouteLineApi
+    private lateinit var routeLineView: MapboxRouteLineView
+    private lateinit var viewportDataSource: MapboxNavigationViewportDataSource
+
+    private val routesObserver = RoutesObserver { routeUpdateResult ->
+        if (routeUpdateResult.navigationRoutes.isNotEmpty()) {
+            // generate route geometries asynchronously and render them
+            routeLineApi.setNavigationRoutes(routeUpdateResult.navigationRoutes) { value ->
+                mapView?.mapboxMap?.style?.apply { routeLineView.renderRouteDrawData(this, value) }
+            }
+
+            // update viewportSourceData to include the new route
+            viewportDataSource.onRouteChanged(routeUpdateResult.navigationRoutes.first())
+            viewportDataSource.evaluate()
+        }
+    }
+
+    @OptIn(ExperimentalPreviewMapboxNavigationAPI::class)
     private val mapboxNavigation: MapboxNavigation by requireMapboxNavigation(
         onResumedObserver = object : MapboxNavigationObserver {
-            @SuppressLint("MissingPermission")
             override fun onAttached(mapboxNavigation: MapboxNavigation) {
+                mapboxNavigation.registerRoutesObserver(routesObserver)
                 mapboxNavigation.registerLocationObserver(locationObserver)
+
+                replayProgressObserver =
+                    ReplayProgressObserver(mapboxNavigation.mapboxReplayer)
+                mapboxNavigation.registerRouteProgressObserver(replayProgressObserver)
             }
 
             override fun onDetached(mapboxNavigation: MapboxNavigation) {
                 mapboxNavigation.unregisterLocationObserver(locationObserver)
+                mapboxNavigation.unregisterRoutesObserver(routesObserver)
             }
         },
         onInitialize = this::initNavigation
@@ -98,13 +123,9 @@ public class MainActivity : ComponentActivity() {
 
     private lateinit var mapViewportState : MapViewportState
 
-    private lateinit var locationPermissionHelper: LocationPermissionHelper
-
     private var userLocation =  Point.fromLngLat(-71.33044, 41.99054)
 
-    private var destination = Point.fromLngLat(-71.33189, 41.98031)
-
-    private var progress = 0.0
+    private var destination = Point.fromLngLat(0.0, 0.0)  //random location for initialization
 
     private fun initNavigation() {
         MapboxNavigationApp.setup(
@@ -114,8 +135,6 @@ public class MainActivity : ComponentActivity() {
     }
 
     private val navigationLocationProvider = NavigationLocationProvider()
-
-    private var lightPreset: LightPresetValue = LightPresetValue.DAY
 
     private var routeLine: LineString? = null
 
@@ -135,8 +154,6 @@ public class MainActivity : ComponentActivity() {
          */
         override fun onNewLocationMatcherResult(locationMatcherResult: LocationMatcherResult) {
 
-            //Log.e("EKR", locationMatcherResult.enhancedLocation.toString())
-
             val enhancedLocation = locationMatcherResult.enhancedLocation
             navigationLocationProvider.changePosition(
                 enhancedLocation,
@@ -144,10 +161,14 @@ public class MainActivity : ComponentActivity() {
             )
             userLocation = Point.fromLngLat(enhancedLocation.longitude,enhancedLocation.latitude)
 
+            // update viewportDataSource to trigger camera to follow the location
+            viewportDataSource.onLocationChanged(enhancedLocation)
+            viewportDataSource.evaluate()
+
             if(!tripStarted)
             {
                 tripStarted = true
-                StartRoute()
+                startRoute()
             }
         }
 
@@ -157,123 +178,101 @@ public class MainActivity : ComponentActivity() {
 
     @Composable
     @SuppressLint("MissingPermission")
-    @OptIn(ExperimentalPreviewMapboxNavigationAPI::class)
     private fun OpenMap()
     {
-        var permissionGranted = false
-        locationPermissionHelper.checkPermissions {
-            permissionGranted = true
-        }
-        if(permissionGranted)
-        {
-            MapboxMap(
-                Modifier.fillMaxSize(),
-                mapViewportState = mapViewportState,
-                style = {
-                    NavigationStyle(routeLine = routeLine, progress = progress, lightPreset = lightPreset)
-                }
-            ) {
-
-                MapEffect() { map ->
-
-                    mapView = map
-                    map.location.apply {
-                        this.locationPuck = LocationPuck2D(
-                            bearingImage = ImageHolder.from(R.drawable.mapbox_user_puck_icon),
-                            shadowImage = ImageHolder.from(R.drawable.mapbox_user_icon_shadow),
-                            scaleExpression = interpolate {
-                                linear()
-                                zoom()
-                                stop {
-                                    literal(0.0)
-                                    literal(0.6)
+            MapboxMapComposeTheme {
+                ExampleScaffold(
+                    floatingActionButton = {
+                        Column{
+                            FloatingActionButton(
+                                modifier = Modifier
+                                    .padding(bottom = 10.dp)
+                                    .align(Alignment.End),
+                                onClick = {
+                                    if ((mapViewportState.mapViewportStatus as? ViewportStatus.State)?.state is FollowPuckViewportState) {
+                                        routeLine?.let {
+                                            mapViewportState.transitionToOverviewState(
+                                                overviewViewportStateOptions = OverviewViewportStateOptions.Builder()
+                                                    .geometry(it)
+                                                    .padding(EdgeInsets(50.0, 50.0, 50.0, 50.0))
+                                                    .build()
+                                            )
+                                        }
+                                    } else {
+                                        mapViewportState.transitionToFollowPuckState()
+                                    }
                                 }
-                                stop {
-                                    literal(20.0)
-                                    literal(1.0)
+                            ) {
+                                if ((mapViewportState.mapViewportStatus as? ViewportStatus.State)?.state is FollowPuckViewportState) {
+                                    Text(modifier = Modifier.padding(10.dp), text = "Overview")
+                                } else {
+                                    Text(modifier = Modifier.padding(10.dp), text = "Follow puck")
                                 }
-                            }.toJson()
-                        )
-                        setLocationProvider(navigationLocationProvider)
-                        enabled = true
-                        puckBearing = PuckBearing.COURSE
-                        puckBearingEnabled = true
-                    }
-                }
-                mapViewportState.transitionToFollowPuckState()
-
-                mapboxNavigation.startTripSession(false)
-
-                /*Column{
-                if (routeLine != null) {
-                    FloatingActionButton(
-                        modifier = Modifier.padding(bottom = 10.dp),
-                        onClick = {
-                            lightPreset = if (lightPreset == LightPresetValue.DAY) {
-                                LightPresetValue.NIGHT
-                            } else {
-                                LightPresetValue.DAY
-                            }
-                        },
-                        shape = RoundedCornerShape(16.dp),
-                    ) {
-                        Text(modifier = Modifier.padding(10.dp), text = "Toggle light preset")
-                    }
-                    FloatingActionButton(
-                        modifier = Modifier
-                            .padding(bottom = 10.dp)
-                            .align(Alignment.End),
-                        onClick = {
-                            if ((mapViewportState.mapViewportStatus as? ViewportStatus.State)?.state is FollowPuckViewportState) {
-                                routeLine?.let {
-                                    mapViewportState.transitionToOverviewState(
-                                        overviewViewportStateOptions = OverviewViewportStateOptions.Builder()
-                                            .geometry(it)
-                                            .padding(EdgeInsets(50.0, 50.0, 50.0, 50.0))
-                                            .build()
-                                    )
-                                }
-                            } else {
-                                mapViewportState.transitionToFollowPuckState()
                             }
                         }
-                    ) {
-                        /*if ((mapViewportState.mapViewportStatus as? ViewportStatus.State)?.state is FollowPuckViewportState) {
-                            Image(
-                                painter = painterResource(id = R.drawable.ic_menu_directions),
-                                contentDescription = "Overview button"
-                            )
-                        } else {
-                            Image(
-                                painter = painterResource(id = R.drawable.ic_menu_mylocation),
-                                contentDescription = "Follow puck button"
-                            )
-                        }*/
-                    }
-                }
-            }*/
 
+                    }
+                ) {
+
+                    routeLineApi = MapboxRouteLineApi(MapboxRouteLineApiOptions.Builder().build())
+                    routeLineView = MapboxRouteLineView(MapboxRouteLineViewOptions.Builder(this).build())
+
+                    MapboxMap(
+                        Modifier.fillMaxSize(),
+                        mapViewportState = mapViewportState
+                    ) {
+
+                        MapEffect() { map ->
+
+                            mapView = map
+                            map.location.apply {
+                                this.locationPuck = LocationPuck2D(
+                                    bearingImage = ImageHolder.from(R.drawable.mapbox_user_puck_icon),
+                                    shadowImage = ImageHolder.from(R.drawable.mapbox_user_icon_shadow),
+                                    scaleExpression = interpolate {
+                                        linear()
+                                        zoom()
+                                        stop {
+                                            literal(0.0)
+                                            literal(0.6)
+                                        }
+                                        stop {
+                                            literal(20.0)
+                                            literal(1.0)
+                                        }
+                                    }.toJson()
+                                )
+                                setLocationProvider(navigationLocationProvider)
+                                enabled = true
+                                puckBearing = PuckBearing.COURSE
+                                puckBearingEnabled = true
+                            }
+                            viewportDataSource = MapboxNavigationViewportDataSource(map.mapboxMap)
+                        }
+                        DisposableMapEffect(Unit) { map ->
+                            map.location.updateSettings {
+                                locationPuck = createDefault2DPuck(withBearing = true)
+                                puckBearingEnabled = true
+                                puckBearing = PuckBearing.HEADING
+                            }
+                            val locationListener = OnIndicatorPositionChangedListener {}
+                            map.location.addOnIndicatorPositionChangedListener(locationListener)
+                            onDispose {
+                                map.location.removeOnIndicatorPositionChangedListener(locationListener)
+                            }
+                        }
+
+                        mapViewportState.transitionToFollowPuckState()
+
+                        mapboxNavigation.startTripSession()
+                    }
+
+                }
             }
-            /*DisposableMapEffect(Unit) { map ->
-            map.location.updateSettings {
-                locationPuck = createDefault2DPuck(withBearing = true)
-                puckBearingEnabled = true
-                puckBearing = PuckBearing.HEADING
-            }
-            val locationListener = OnIndicatorPositionChangedListener { point ->
-                // in SimulateRouteLocationProvider we use altitude field to insert animated progress info.
-                progress = point.altitude()
-            }
-            map.location.addOnIndicatorPositionChangedListener(locationListener)
-            onDispose {
-                map.location.removeOnIndicatorPositionChangedListener(locationListener)
-            }
-        }*/
-        }
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
@@ -286,71 +285,42 @@ public class MainActivity : ComponentActivity() {
                 }
             }
 
-            locationPermissionHelper = LocationPermissionHelper(WeakReference(this))
+            RenderButtons()
+        }
+    }
 
+    @Composable
+    private fun RenderButtons()
+    {
             var startRouteToSFBool by remember { mutableStateOf(false) }
             var startRouteToDCBool by remember { mutableStateOf(false) }
 
-            MapboxMapComposeTheme {
-                ExampleScaffold(
-                    floatingActionButton = {
-                        Column {
-                            if (startRouteToSFBool) {
-                                destination = Point.fromLngLat(-122.413683,37.775707)
-                                OpenMap()
-                            }
-                            if (startRouteToDCBool)
-                            {
-                                destination = Point.fromLngLat(-77.034065,38.904856)
-                                OpenMap()
-                            }
-                            FloatingActionButton(
-                                modifier = Modifier.padding(bottom = 10.dp),
-                                onClick = { startRouteToSFBool = true },
-                                shape = RoundedCornerShape(16.dp),
-                            ) {
-                                Text(modifier = Modifier.padding(10.dp), text = "Start Route to Mapbox SF HQ")
-                            }
-                            FloatingActionButton(
-                                modifier = Modifier.padding(bottom = 10.dp),
-                                onClick = { startRouteToDCBool = true },
-                                shape = RoundedCornerShape(16.dp),
-                            ) {
-                                Text(modifier = Modifier.padding(10.dp), text = "Start Route to Mapbox DC HQ")
-                            }
-                        }
-                    }
+        Column(
+                Modifier.fillMaxWidth().fillMaxHeight()
+            ) {
+                if (startRouteToSFBool) {
+                    destination = Point.fromLngLat(-122.413683, 37.775707)
+                    OpenMap()
+                }
+                if (startRouteToDCBool) {
+                    destination = Point.fromLngLat(-77.034065, 38.904856)
+                    OpenMap()
+                }
+                FloatingActionButton(
+                    modifier = Modifier.padding(top = 300.dp,bottom = 10.dp).align(Alignment.CenterHorizontally),
+                    onClick = { startRouteToSFBool = true },
+                    shape = RoundedCornerShape(16.dp),
                 ) {
-
-                    }
+                    Text(modifier = Modifier.padding(10.dp), text = "Start Route to Mapbox SF HQ")
+                }
+                FloatingActionButton(
+                    modifier = Modifier.padding(all = 10.dp).align(Alignment.CenterHorizontally),
+                    onClick = { startRouteToDCBool = true },
+                    shape = RoundedCornerShape(16.dp),
+                ) {
+                    Text(modifier = Modifier.padding(10.dp), text = "Start Route to Mapbox DC HQ")
                 }
             }
-        }
-
-    @MapboxStyleComposable
-    @Composable
-    public fun NavigationStyle(
-        routeLine: LineString?,
-        progress: Double,
-        lightPreset: LightPresetValue
-    ) {
-        val geoJsonSource = rememberGeoJsonSourceState {
-            lineMetrics = BooleanValue(true)
-        }
-        LaunchedEffect(routeLine) {
-            routeLine?.let {
-                geoJsonSource.data = GeoJSONData(it)
-            }
-        }
-        MapboxStandardStyle(
-            topSlot = {
-                if (routeLine != null) {
-
-                }
-            }
-        ) {
-            this.lightPreset = lightPreset
-        }
     }
 
     override fun onStart() {
@@ -366,7 +336,7 @@ public class MainActivity : ComponentActivity() {
     }
 
     @OptIn(ExperimentalPreviewMapboxNavigationAPI::class)
-    private fun StartRoute()
+    private fun startRoute()
     {
             val routeOptions = RouteOptions.builder()
                 // applies the default parameters to route options
@@ -405,14 +375,12 @@ public class MainActivity : ComponentActivity() {
                     ) {
                     }
 
+                    @SuppressLint("MissingPermission")
                     override fun onRoutesReady(
                         routes: List<NavigationRoute>,
                         routerOrigin: String
                     ) {
-                        mapboxNavigation.setNavigationRoutes(routes)
-
-                        routeLine =
-                            LineString.fromLngLats(routes.first().directionsRoute.completeGeometryToPoints())//routes.first().directionsRoute.completeGeometryToPoints())//(routeOptions., Constants.PRECISION_6)
+                        routeLine = routes.first().directionsRoute.completeGeometryToLineString()
                                 .also {
                                     // immediately transition to overview viewport state after route line is available
                                     mapViewportState.transitionToOverviewState(
@@ -422,24 +390,37 @@ public class MainActivity : ComponentActivity() {
                                     )
                                 }
 
-                        /*mapView?.mapboxMap?.style?.addSource(
-                            GeoJsonSource(
-                                "line-source",
-                                FeatureCollection.fromFeatures(
-                                    arrayOf<Feature>(
-                                        Feature.fromGeometry(routes.first().directionsRoute.completeGeometryToPoints())
-                                        )
-                                    )
-                                )
+                        mapView?.mapboxMap?.getStyle { style ->
+                            // Specify a unique string as the source ID (SOURCE_ID)
+                            // and reference the location of source data
+                            style.addSource(
+                                geoJsonSource("routeData") {
+                                   geometry(routeLine!!)
+                                }
                             )
-                        )*/
+
+                            // Specify a unique string as the layer ID (LAYER_ID)
+                            // and reference the source ID (SOURCE_ID) added above.
+                            style.addLayer(
+                                lineLayer("routeLine", "routeData") {
+                                    lineColor(Color.BLUE)
+                                    lineWidth(5.0)
+                                    slot("top")
+                                }
+                            )
+                        }
+
+                        mapboxNavigation.setNavigationRoutes(routes)
 
                         // start simulated user movement
-                        val replayData =
+                        /*val replayData =
                             replayRouteMapper.mapDirectionsRouteGeometry(routes.first().directionsRoute)
                         mapboxNavigation.mapboxReplayer.pushEvents(replayData)
                         mapboxNavigation.mapboxReplayer.seekTo(replayData[0])
                         mapboxNavigation.mapboxReplayer.play()
+
+                        mapboxNavigation.startReplayTripSession()*/
+                        mapboxNavigation.startTripSession()
 
                     }
                 }
