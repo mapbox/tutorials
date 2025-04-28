@@ -1,7 +1,6 @@
 package com.example.jetpackcomposetest
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,10 +34,6 @@ import com.mapbox.maps.extension.compose.MapboxMap
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportState
 import com.mapbox.maps.extension.style.expressions.dsl.generated.interpolate
-import com.mapbox.maps.extension.style.layers.addLayer
-import com.mapbox.maps.extension.style.layers.generated.lineLayer
-import com.mapbox.maps.extension.style.sources.addSource
-import com.mapbox.maps.extension.style.sources.generated.geoJsonSource
 import com.mapbox.maps.plugin.LocationPuck2D
 import com.mapbox.maps.plugin.PuckBearing
 import com.mapbox.maps.plugin.locationcomponent.OnIndicatorPositionChangedListener
@@ -123,7 +118,7 @@ public class MainActivity : ComponentActivity() {
 
     private lateinit var mapViewportState : MapViewportState
 
-    private var userLocation =  Point.fromLngLat(-71.33044, 41.99054)
+    private var userLocation =  Point.fromLngLat(-98.23580, 39.40344) // center of U.S., random location for initialization
 
     private var destination = Point.fromLngLat(0.0, 0.0)  //random location for initialization
 
@@ -149,7 +144,7 @@ public class MainActivity : ComponentActivity() {
     private val locationObserver = object : LocationObserver {
 
         /**
-         * Provides the best possible location update, snapped to the route or
+         * Provides the best possible locxation update, snapped to the route or
          * map-matched to the road if possible.
          */
         override fun onNewLocationMatcherResult(locationMatcherResult: LocationMatcherResult) {
@@ -262,8 +257,6 @@ public class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        mapViewportState.transitionToFollowPuckState()
-
                         mapboxNavigation.startTripSession()
                     }
 
@@ -279,7 +272,7 @@ public class MainActivity : ComponentActivity() {
             mapViewportState = rememberMapViewportState {
                 setCameraOptions {
                     center(userLocation)
-                    zoom(10.0)
+                    zoom(3.0)
                     pitch(0.0)
                     bearing(0.0)
                 }
@@ -382,45 +375,19 @@ public class MainActivity : ComponentActivity() {
                     ) {
                         routeLine = routes.first().directionsRoute.completeGeometryToLineString()
                                 .also {
-                                    // immediately transition to overview viewport state after route line is available
-                                    mapViewportState.transitionToOverviewState(
-                                        OverviewViewportStateOptions.Builder().geometry(it)
-                                            .padding(EdgeInsets(50.0, 50.0, 50.0, 50.0))
-                                            .build()
-                                    )
+                                    mapViewportState.transitionToFollowPuckState()
                                 }
-
-                        mapView?.mapboxMap?.getStyle { style ->
-                            // Specify a unique string as the source ID (SOURCE_ID)
-                            // and reference the location of source data
-                            style.addSource(
-                                geoJsonSource("routeData") {
-                                   geometry(routeLine!!)
-                                }
-                            )
-
-                            // Specify a unique string as the layer ID (LAYER_ID)
-                            // and reference the source ID (SOURCE_ID) added above.
-                            style.addLayer(
-                                lineLayer("routeLine", "routeData") {
-                                    lineColor(Color.BLUE)
-                                    lineWidth(5.0)
-                                    slot("top")
-                                }
-                            )
-                        }
 
                         mapboxNavigation.setNavigationRoutes(routes)
 
-                        // start simulated user movement
-                        /*val replayData =
+                        // start simulated user movement COMMENT THIS OUT TO HAVE USER LOCATION ONLY
+                        val replayData =
                             replayRouteMapper.mapDirectionsRouteGeometry(routes.first().directionsRoute)
                         mapboxNavigation.mapboxReplayer.pushEvents(replayData)
                         mapboxNavigation.mapboxReplayer.seekTo(replayData[0])
                         mapboxNavigation.mapboxReplayer.play()
 
-                        mapboxNavigation.startReplayTripSession()*/
-                        mapboxNavigation.startTripSession()
+                        mapboxNavigation.startReplayTripSession()
 
                     }
                 }
