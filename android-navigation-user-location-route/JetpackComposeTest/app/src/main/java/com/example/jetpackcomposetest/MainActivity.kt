@@ -35,7 +35,6 @@ val destinations = listOf(
 )
 
 class MainActivity : ComponentActivity() {
-    private lateinit var mapViewportState : MapViewportState
 
     @OptIn(ExperimentalPreviewMapboxNavigationAPI::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,15 +50,6 @@ class MainActivity : ComponentActivity() {
             val destination = remember { mutableStateOf<Point?>(null) }
             val routes = remember { mutableStateOf<List<NavigationRoute>?>(null) } // <- Added state for routes
             val coroutineScope = rememberCoroutineScope()
-
-            mapViewportState = rememberMapViewportState {
-                setCameraOptions {
-                    center(origin.value)
-                    zoom(3.0)
-                    pitch(0.0)
-                    bearing(0.0)
-                }
-            }
 
             Box(modifier = Modifier.fillMaxSize()) {
                 Column(
@@ -91,7 +81,6 @@ class MainActivity : ComponentActivity() {
                                                     origin = origin.value,
                                                     destination = destination.value!!
                                                 )
-                                                mapboxNavigation.setNavigationRoutes(resultRoutes)
                                                 println("Routes successfully loaded: ${resultRoutes.size}")
 
                                                 // ✅ Update state with routes
@@ -119,7 +108,10 @@ class MainActivity : ComponentActivity() {
                     val mapboxNavigation = MapboxNavigationApp.current()
 
                     if (mapboxNavigation != null) {
-                        OpenMap(mapViewportState = mapViewportState, mapboxNavigation = mapboxNavigation)
+                        OpenMap(
+                            routes = routes.value,
+                            mapboxNavigation = mapboxNavigation
+                        )
                     }
                 }
             }
