@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D38CAE2B2DB9128F00E7E995 /* NavigationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38CAE2A2DB9128F00E7E995 /* NavigationLoader.swift */; };
+		D39DB53F2DA5577B0040C0AB /* ios_navigationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39DB53E2DA5577B0040C0AB /* ios_navigationApp.swift */; };
+		D39DB5412DA5577B0040C0AB /* DestinationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39DB5402DA5577B0040C0AB /* DestinationListView.swift */; };
+		D39DB5432DA5577D0040C0AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39DB5422DA5577D0040C0AB /* Assets.xcassets */; };
+		D39DB5462DA5577D0040C0AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39DB5452DA5577D0040C0AB /* Preview Assets.xcassets */; };
+		D39DB5502DA5577E0040C0AB /* ios_navigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39DB54F2DA5577E0040C0AB /* ios_navigationTests.swift */; };
+		D39DB55A2DA5577E0040C0AB /* ios_navigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39DB5592DA5577E0040C0AB /* ios_navigationUITests.swift */; };
+		D39DB55C2DA5577E0040C0AB /* ios_navigationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39DB55B2DA5577E0040C0AB /* ios_navigationUITestsLaunchTests.swift */; };
+		D39DB56B2DA558780040C0AB /* MapboxNavigationCore in Frameworks */ = {isa = PBXBuildFile; productRef = D39DB56A2DA558780040C0AB /* MapboxNavigationCore */; };
+		D39DB56D2DA558780040C0AB /* MapboxNavigationUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = D39DB56C2DA558780040C0AB /* MapboxNavigationUIKit */; };
+		D39DB56F2DA558780040C0AB /* mapbox-directions-swift in Frameworks */ = {isa = PBXBuildFile; productRef = D39DB56E2DA558780040C0AB /* mapbox-directions-swift */; };
+		D3A41E552DA57DD800A4D2CF /* NavigationViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A41E542DA57DD800A4D2CF /* NavigationViewWrapper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D39DB54C2DA5577E0040C0AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D39DB5332DA5577B0040C0AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D39DB53A2DA5577B0040C0AB;
+			remoteInfo = "ios-navigation";
+		};
+		D39DB5562DA5577E0040C0AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D39DB5332DA5577B0040C0AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D39DB53A2DA5577B0040C0AB;
+			remoteInfo = "ios-navigation";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D38CAE2A2DB9128F00E7E995 /* NavigationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLoader.swift; sourceTree = "<group>"; };
+		D39DB53B2DA5577B0040C0AB /* ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D39DB53E2DA5577B0040C0AB /* ios_navigationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_navigationApp.swift; sourceTree = "<group>"; };
+		D39DB5402DA5577B0040C0AB /* DestinationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationListView.swift; sourceTree = "<group>"; };
+		D39DB5422DA5577D0040C0AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D39DB5452DA5577D0040C0AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D39DB54B2DA5577E0040C0AB /* ios-navigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-navigationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D39DB54F2DA5577E0040C0AB /* ios_navigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_navigationTests.swift; sourceTree = "<group>"; };
+		D39DB5552DA5577E0040C0AB /* ios-navigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-navigationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D39DB5592DA5577E0040C0AB /* ios_navigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_navigationUITests.swift; sourceTree = "<group>"; };
+		D39DB55B2DA5577E0040C0AB /* ios_navigationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_navigationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D39DB5682DA557B50040C0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D3A41E542DA57DD800A4D2CF /* NavigationViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewWrapper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D39DB5382DA5577B0040C0AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39DB56D2DA558780040C0AB /* MapboxNavigationUIKit in Frameworks */,
+				D39DB56B2DA558780040C0AB /* MapboxNavigationCore in Frameworks */,
+				D39DB56F2DA558780040C0AB /* mapbox-directions-swift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5482DA5577E0040C0AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5522DA5577E0040C0AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D39DB5322DA5577B0040C0AB = {
+			isa = PBXGroup;
+			children = (
+				D39DB53D2DA5577B0040C0AB /* ios-navigation */,
+				D39DB54E2DA5577E0040C0AB /* ios-navigationTests */,
+				D39DB5582DA5577E0040C0AB /* ios-navigationUITests */,
+				D39DB53C2DA5577B0040C0AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D39DB53C2DA5577B0040C0AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D39DB53B2DA5577B0040C0AB /* ios-navigation.app */,
+				D39DB54B2DA5577E0040C0AB /* ios-navigationTests.xctest */,
+				D39DB5552DA5577E0040C0AB /* ios-navigationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D39DB53D2DA5577B0040C0AB /* ios-navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D39DB5682DA557B50040C0AB /* Info.plist */,
+				D39DB53E2DA5577B0040C0AB /* ios_navigationApp.swift */,
+				D39DB5402DA5577B0040C0AB /* DestinationListView.swift */,
+				D39DB5422DA5577D0040C0AB /* Assets.xcassets */,
+				D39DB5442DA5577D0040C0AB /* Preview Content */,
+				D3A41E542DA57DD800A4D2CF /* NavigationViewWrapper.swift */,
+				D38CAE2A2DB9128F00E7E995 /* NavigationLoader.swift */,
+			);
+			path = "ios-navigation";
+			sourceTree = "<group>";
+		};
+		D39DB5442DA5577D0040C0AB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D39DB5452DA5577D0040C0AB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D39DB54E2DA5577E0040C0AB /* ios-navigationTests */ = {
+			isa = PBXGroup;
+			children = (
+				D39DB54F2DA5577E0040C0AB /* ios_navigationTests.swift */,
+			);
+			path = "ios-navigationTests";
+			sourceTree = "<group>";
+		};
+		D39DB5582DA5577E0040C0AB /* ios-navigationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D39DB5592DA5577E0040C0AB /* ios_navigationUITests.swift */,
+				D39DB55B2DA5577E0040C0AB /* ios_navigationUITestsLaunchTests.swift */,
+			);
+			path = "ios-navigationUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D39DB53A2DA5577B0040C0AB /* ios-navigation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D39DB55F2DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigation" */;
+			buildPhases = (
+				D39DB5372DA5577B0040C0AB /* Sources */,
+				D39DB5382DA5577B0040C0AB /* Frameworks */,
+				D39DB5392DA5577B0040C0AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-navigation";
+			packageProductDependencies = (
+				D39DB56A2DA558780040C0AB /* MapboxNavigationCore */,
+				D39DB56C2DA558780040C0AB /* MapboxNavigationUIKit */,
+				D39DB56E2DA558780040C0AB /* mapbox-directions-swift */,
+			);
+			productName = "ios-navigation";
+			productReference = D39DB53B2DA5577B0040C0AB /* ios-navigation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D39DB54A2DA5577E0040C0AB /* ios-navigationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D39DB5622DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigationTests" */;
+			buildPhases = (
+				D39DB5472DA5577E0040C0AB /* Sources */,
+				D39DB5482DA5577E0040C0AB /* Frameworks */,
+				D39DB5492DA5577E0040C0AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D39DB54D2DA5577E0040C0AB /* PBXTargetDependency */,
+			);
+			name = "ios-navigationTests";
+			productName = "ios-navigationTests";
+			productReference = D39DB54B2DA5577E0040C0AB /* ios-navigationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D39DB5542DA5577E0040C0AB /* ios-navigationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D39DB5652DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigationUITests" */;
+			buildPhases = (
+				D39DB5512DA5577E0040C0AB /* Sources */,
+				D39DB5522DA5577E0040C0AB /* Frameworks */,
+				D39DB5532DA5577E0040C0AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D39DB5572DA5577E0040C0AB /* PBXTargetDependency */,
+			);
+			name = "ios-navigationUITests";
+			productName = "ios-navigationUITests";
+			productReference = D39DB5552DA5577E0040C0AB /* ios-navigationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D39DB5332DA5577B0040C0AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					D39DB53A2DA5577B0040C0AB = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					D39DB54A2DA5577E0040C0AB = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = D39DB53A2DA5577B0040C0AB;
+					};
+					D39DB5542DA5577E0040C0AB = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = D39DB53A2DA5577B0040C0AB;
+					};
+				};
+			};
+			buildConfigurationList = D39DB5362DA5577B0040C0AB /* Build configuration list for PBXProject "ios-navigation" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D39DB5322DA5577B0040C0AB;
+			packageReferences = (
+				D39DB5692DA558780040C0AB /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
+			);
+			productRefGroup = D39DB53C2DA5577B0040C0AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D39DB53A2DA5577B0040C0AB /* ios-navigation */,
+				D39DB54A2DA5577E0040C0AB /* ios-navigationTests */,
+				D39DB5542DA5577E0040C0AB /* ios-navigationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D39DB5392DA5577B0040C0AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39DB5462DA5577D0040C0AB /* Preview Assets.xcassets in Resources */,
+				D39DB5432DA5577D0040C0AB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5492DA5577E0040C0AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5532DA5577E0040C0AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D39DB5372DA5577B0040C0AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D38CAE2B2DB9128F00E7E995 /* NavigationLoader.swift in Sources */,
+				D39DB5412DA5577B0040C0AB /* DestinationListView.swift in Sources */,
+				D3A41E552DA57DD800A4D2CF /* NavigationViewWrapper.swift in Sources */,
+				D39DB53F2DA5577B0040C0AB /* ios_navigationApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5472DA5577E0040C0AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39DB5502DA5577E0040C0AB /* ios_navigationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39DB5512DA5577E0040C0AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39DB55C2DA5577E0040C0AB /* ios_navigationUITestsLaunchTests.swift in Sources */,
+				D39DB55A2DA5577E0040C0AB /* ios_navigationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D39DB54D2DA5577E0040C0AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D39DB53A2DA5577B0040C0AB /* ios-navigation */;
+			targetProxy = D39DB54C2DA5577E0040C0AB /* PBXContainerItemProxy */;
+		};
+		D39DB5572DA5577E0040C0AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D39DB53A2DA5577B0040C0AB /* ios-navigation */;
+			targetProxy = D39DB5562DA5577E0040C0AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D39DB55D2DA5577E0040C0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D39DB55E2DA5577E0040C0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D39DB5602DA5577E0040C0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ios-navigation/Preview Content\"";
+				DEVELOPMENT_TEAM = 3U77D9A28J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-navigation/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D39DB5612DA5577E0040C0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ios-navigation/Preview Content\"";
+				DEVELOPMENT_TEAM = 3U77D9A28J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-navigation/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D39DB5632DA5577E0040C0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-navigation";
+			};
+			name = Debug;
+		};
+		D39DB5642DA5577E0040C0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-navigation";
+			};
+			name = Release;
+		};
+		D39DB5662DA5577E0040C0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-navigation";
+			};
+			name = Debug;
+		};
+		D39DB5672DA5577E0040C0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-navigationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-navigation";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D39DB5362DA5577B0040C0AB /* Build configuration list for PBXProject "ios-navigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D39DB55D2DA5577E0040C0AB /* Debug */,
+				D39DB55E2DA5577E0040C0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D39DB55F2DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D39DB5602DA5577E0040C0AB /* Debug */,
+				D39DB5612DA5577E0040C0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D39DB5622DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D39DB5632DA5577E0040C0AB /* Debug */,
+				D39DB5642DA5577E0040C0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D39DB5652DA5577E0040C0AB /* Build configuration list for PBXNativeTarget "ios-navigationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D39DB5662DA5577E0040C0AB /* Debug */,
+				D39DB5672DA5577E0040C0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D39DB5692DA558780040C0AB /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-navigation-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D39DB56A2DA558780040C0AB /* MapboxNavigationCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DB5692DA558780040C0AB /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxNavigationCore;
+		};
+		D39DB56C2DA558780040C0AB /* MapboxNavigationUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DB5692DA558780040C0AB /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = MapboxNavigationUIKit;
+		};
+		D39DB56E2DA558780040C0AB /* mapbox-directions-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D39DB5692DA558780040C0AB /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
+			productName = "mapbox-directions-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D39DB5332DA5577B0040C0AB /* Project object */;
+}

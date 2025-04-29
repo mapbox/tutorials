@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MBXAccessToken</key>
+	<string>YOUR_MAPBOX_ACCESS_TOKEN</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+      <key>LocationAccuracyAuthorizationDescription</key>
+      <string>Please enable precise location. Turn-by-turn directions only work when precise location data is available.</string>
+    </dict>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+        <string>location</string>
+    </array>
+</dict>
+</plist>
