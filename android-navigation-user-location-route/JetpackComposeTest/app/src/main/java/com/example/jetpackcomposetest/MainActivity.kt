@@ -23,6 +23,15 @@ import com.mapbox.navigation.core.lifecycle.MapboxNavigationApp
 import kotlinx.coroutines.launch
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.extension.compose.animation.viewport.rememberMapViewportState
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.fragment.app.FragmentContainerView
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.platform.LocalContext
+import androidx.fragment.app.commit
+import com.mapbox.dash.sdk.DashNavigationFragment
+
 
 // Define Destination data class
 data class Destination(val name: String, val location: Point)
@@ -34,7 +43,7 @@ val destinations = listOf(
     Destination("Bunker Hill Monument", Point.fromLngLat(-71.06083, 42.37632))
 )
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     @OptIn(ExperimentalPreviewMapboxNavigationAPI::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +59,8 @@ class MainActivity : ComponentActivity() {
             val destination = remember { mutableStateOf<Point?>(null) }
             val routes = remember { mutableStateOf<List<NavigationRoute>?>(null) } // <- Added state for routes
             val coroutineScope = rememberCoroutineScope()
+
+            //setContentView(R.layout.activity_main)
 
             Box(modifier = Modifier.fillMaxSize()) {
                 Column(
@@ -68,33 +79,33 @@ class MainActivity : ComponentActivity() {
                     destinations.forEach { dest ->
                         Button(
                             onClick = {
-                                destination.value = dest.location
-                                coroutineScope.launch {
-                                    if (MapboxNavigationApp.isSetup()) {
-                                        val mapboxNavigation = MapboxNavigationApp.current()
-                                        Log.d("FOO", mapboxNavigation.toString())
-
-                                        if (mapboxNavigation != null) {
-                                            try {
-                                                val resultRoutes = NavigationLoader.loadRoutes(
-                                                    mapboxNavigation,
-                                                    origin = origin.value,
-                                                    destination = destination.value!!
-                                                )
-                                                println("Routes successfully loaded: ${resultRoutes.size}")
-
-                                                // ✅ Update state with routes
-                                                routes.value = resultRoutes
-                                            } catch (e: Exception) {
-                                                println("Failed to load routes: ${e.message}")
-                                            }
-                                        } else {
-                                            println("MapboxNavigationApp.current() returned null unexpectedly.")
-                                        }
-                                    } else {
-                                        println("MapboxNavigationApp is not setup yet.")
-                                    }
-                                }
+//                                destination.value = dest.location
+//                                coroutineScope.launch {
+//                                    if (MapboxNavigationApp.isSetup()) {
+//                                        val mapboxNavigation = MapboxNavigationApp.current()
+//                                        Log.d("FOO", mapboxNavigation.toString())
+//
+//                                        if (mapboxNavigation != null) {
+//                                            try {
+//                                                val resultRoutes = NavigationLoader.loadRoutes(
+//                                                    mapboxNavigation,
+//                                                    origin = origin.value,
+//                                                    destination = destination.value!!
+//                                                )
+//                                                println("Routes successfully loaded: ${resultRoutes.size}")
+//
+//                                                // ✅ Update state with routes
+//                                                routes.value = resultRoutes
+//                                            } catch (e: Exception) {
+//                                                println("Failed to load routes: ${e.message}")
+//                                            }
+//                                        } else {
+//                                            println("MapboxNavigationApp.current() returned null unexpectedly.")
+//                                        }
+//                                    } else {
+//                                        println("MapboxNavigationApp is not setup yet.")
+//                                    }
+//                                }
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {
@@ -104,13 +115,39 @@ class MainActivity : ComponentActivity() {
                 }
 
                 // ✅ Full screen panel when routes exist
-                if (routes.value != null) {
+                if (true){//routes.value != null) {
                     val mapboxNavigation = MapboxNavigationApp.current()
 
                     if (mapboxNavigation != null) {
-                        OpenMap(
+                        /*OpenMap(
                             routes = routes.value,
                             mapboxNavigation = mapboxNavigation
+                        )*/
+                        val context = LocalContext.current
+                        val fragmentManager = (context as AppCompatActivity).supportFragmentManager
+                        val fragmentTag = "DashNavigationFragmentTag"
+
+                        AndroidView(
+                            factory = { ctx ->
+                                val fragmentContainerView = FragmentContainerView(ctx).apply {
+                                    id = View.generateViewId()
+                                    layoutParams = ViewGroup.LayoutParams(
+                                        ViewGroup.LayoutParams.MATCH_PARENT,
+                                        ViewGroup.LayoutParams.MATCH_PARENT
+                                    )
+                                }
+
+                                // Add fragment only if it's not already added
+                                if (fragmentManager.findFragmentByTag(fragmentTag) == null) {
+                                    fragmentManager.commit {
+                                        setReorderingAllowed(true)
+                                        add(fragmentContainerView.id, DashNavigationFragment::class.java, null, fragmentTag)
+                                    }
+                                }
+
+                                fragmentContainerView
+                            },
+                            update = { /* Optional: update logic if needed */ }
                         )
                     }
                 }
