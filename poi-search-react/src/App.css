@@ -1,0 +1,63 @@
+html, body, #root, #map-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.button-container {
+  display: flex; 
+  position: fixed; 
+  left: 0.75rem; 
+  z-index: 50; 
+  margin-top: 0.75rem; 
+  margin-top: 0.875rem; 
+  flex-direction: column; 
+  align-items: flex-start; 
+}
+
+button {
+  color: #1F2937;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f3f4f6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+button.active, button:active {
+  background-color: #e5e7eb;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.search-area-button {
+  position: fixed; 
+  top: 10px;
+  left: 50%; 
+  z-index: 1;
+}
+
+.popup-title {
+  font-weight: bold;
+}
+
+.popup-address {
+  color: #444;
+}
+
+.marker-emoji {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+}
