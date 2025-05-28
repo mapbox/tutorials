@@ -25,5 +25,5 @@ Prerequisites: Node.js v18 or higher and npm
 
 - Clone this repository and navigate to this directory
 - Install dependencies `npm install`
-- Replace `YOUR_MAPBOX_ACCESS_TOKEN` in `src/App.jsx` with an access token from your Mapbox account.
+- Replace `YOUR_MAPBOX_ACCESS_TOKEN` in `src/App.jsx` with an access token from your [Mapbox account](https://console.mapbox.com/).
 - Run the vite development server `npm run dev` and open the app in your browser.
