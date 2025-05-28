@@ -4,7 +4,7 @@ This is supporting code for the Mapbox turorial [Add Point of Interest (POI) Sea
 
 ## Overview
 
-his Mapbox tutorial walks through how to integrate Points of Interest (POI) search results from the [Mapbox Search Box API](https://docs.mapbox.com/api/search/search-box/) into a React app, allowing the user to discover nearby businesses and services for a given map location.
+This Mapbox tutorial walks through how to integrate Points of Interest (POI) search results from the [Mapbox Search Box API](https://docs.mapbox.com/api/search/search-box/) into a React app, allowing the user to discover nearby businesses and services for a given map location.
 
 
 You'll learn how to:
