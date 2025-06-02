@@ -1,0 +1,8 @@
+<div class="toolbar">
+  Longitude: {{ center()[0] | number:'1.4-4' }} |
+  Latitude: {{ center()[1] | number:'1.4-4' }} |
+  Zoom: {{ zoom() | number:'1.2-2' }}
+  <button class="reset-button" (click)="resetView()">Reset View</button> <!-- 👈 Angular click binding -->
+</div>
+<div #mapContainer id="map-container"></div>
+
