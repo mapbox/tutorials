@@ -1,6 +1,6 @@
 # poi-search
 
-This is supporting code for the Mapbox turorial [Add Point of Interest (POI) Search to a Map in a React app](https://docs.mapbox.com/help/tutorials/poi-search-react/).
+This is supporting code for the Mapbox tutorial [Add Point of Interest (POI) Search to a Map in a React app](https://docs.mapbox.com/help/tutorials/poi-search-react/).
 
 ## Overview
 

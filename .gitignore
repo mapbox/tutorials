@@ -82,3 +82,6 @@ fastlane/test_output
 .externalNativeBuild
 .cxx
 local.properties
+
+# Angular project files
+.angular/
