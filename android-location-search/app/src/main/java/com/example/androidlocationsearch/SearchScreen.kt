@@ -75,10 +75,10 @@ fun SearchScreen(
                         SearchOptions(
                             //proximity = Point.fromLngLat(-79.35954, 43.65050), // Proximity to Toronto's Distillery District
                             limit = 10,
-                            boundingBox = BoundingBox.fromPoints(
-                                Point.fromLngLat(-79.49555, 43.60698),
-                                Point.fromLngLat(-79.29422, 43.75953)
-                            ) // Bounding Box of the Greater Toronto Area
+                            // boundingBox = BoundingBox.fromPoints(
+                               // Point.fromLngLat(-79.49555, 43.60698),
+                               // Point.fromLngLat(-79.29422, 43.75953)
+                            // ) // Bounding Box of the Greater Toronto Area
                         ),
                         callback = object : com.mapbox.search.SearchSuggestionsCallback {
                             override fun onSuggestions(
