@@ -6,7 +6,7 @@ import MapboxMaps
 
 class ViewController: UIViewController {
     // Creates a controller for the Mapbox Search Panel, creating UI for you to use Mapbox Search
-    let searchController = MapboxSearchController()
+    let searchController = MapboxSearchController(apiType: .searchBox)
     
     // Creates the map
     private var mapView = MapView(frame: .zero)
