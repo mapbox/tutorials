@@ -11,25 +11,22 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mapbox.common.location.LocationServiceFactory
-import com.mapbox.geojson.BoundingBox
-import com.mapbox.geojson.Point
-import com.mapbox.maps.dsl.cameraOptions
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.plugin.animation.MapAnimationOptions
+import com.mapbox.maps.dsl.cameraOptions
+import com.mapbox.search.SearchSelectionCallback
 import com.mapbox.search.ApiType
 import com.mapbox.search.ResponseInfo
 import com.mapbox.search.SearchEngine
 import com.mapbox.search.SearchEngineSettings
 import com.mapbox.search.SearchOptions
-import com.mapbox.search.SearchSelectionCallback
 import com.mapbox.search.result.SearchResult
 import com.mapbox.search.result.SearchSuggestion
+import com.mapbox.search.result.SearchSuggestionType.Category
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,23 +36,14 @@ fun SearchScreen(
     modifier: Modifier = Modifier,
     onSuggestionSelected: (SearchResult) -> Unit
 ) {
-    val context = LocalContext.current;
     var query by remember { mutableStateOf("") }
     var suggestions by remember { mutableStateOf<List<SearchSuggestion>>(emptyList()) }
-
-    val locationProvider = LocationServiceFactory.getOrCreate()
-        .getDeviceLocationProvider(null)
-        .value
-
-    val searchEngineSettings =   SearchEngineSettings(
-        locationProvider = locationProvider
-    )
 
     // Get SearchEngine instance
     val searchEngine = remember {
         SearchEngine.createSearchEngine(
             ApiType.SEARCH_BOX,
-            searchEngineSettings
+            SearchEngineSettings()
         )
     }
 
@@ -73,12 +61,7 @@ fun SearchScreen(
                     searchEngine.search(
                         newQuery,
                         SearchOptions(
-                            //proximity = Point.fromLngLat(-79.35954, 43.65050), // Proximity to Toronto's Distillery District
-                            limit = 10,
-                            // boundingBox = BoundingBox.fromPoints(
-                               // Point.fromLngLat(-79.49555, 43.60698),
-                               // Point.fromLngLat(-79.29422, 43.75953)
-                            // ) // Bounding Box of the Greater Toronto Area
+                            limit = 10
                         ),
                         callback = object : com.mapbox.search.SearchSuggestionsCallback {
                             override fun onSuggestions(
@@ -111,6 +94,7 @@ fun SearchScreen(
             shape = RoundedCornerShape(8.dp)
         )
 
+
         Spacer(modifier = Modifier.height(16.dp))
 
         // Suggestions list anchored right below the TextField
@@ -121,7 +105,7 @@ fun SearchScreen(
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp)
+                    .padding(top=8.dp, start=16.dp, end=16.dp)
                     .heightIn(max = 500.dp)
             ) {
                 val scrollState = rememberScrollState()
@@ -130,11 +114,17 @@ fun SearchScreen(
                         .padding(16.dp)
                         .verticalScroll(scrollState)
                 ) {
-                    suggestions.forEachIndexed { index, suggestion ->
+                    // Filter out category suggestion types
+                    val filteredSuggestions = suggestions.filter { it.type !is Category }
+
+                    filteredSuggestions.forEachIndexed { index, suggestion ->
 
                         val distanceKm = suggestion.distanceMeters?.div(1000.0)
                         val addressText = suggestion.fullAddress
-                            ?: listOfNotNull(suggestion.address?.region, suggestion.address?.country).joinToString(", ")
+                            ?: listOfNotNull(
+                                suggestion.address?.region,
+                                suggestion.address?.country
+                            ).joinToString(", ")
 
                         Row(
                             modifier = Modifier
@@ -182,7 +172,7 @@ fun SearchScreen(
                             }
                         }
                         if (index < suggestions.lastIndex) {
-                            Divider(color = Color.LightGray)
+                            HorizontalDivider(color = Color.LightGray)
                         }
                     }
 
@@ -208,20 +198,16 @@ fun handleSuggestionSelection(
             // When user selects a suggestion:
             onSuggestionSelected(result)
             val coordinate = result.coordinate
-            if (coordinate != null) {
-                val camera = cameraOptions {
-                    center(coordinate)
-                    zoom(14.0)
-                }
-
-                val animationOptions = MapAnimationOptions.Builder()
-                    .duration(3000L) // 3 seconds
-                    .build()
-
-                mapViewportState.flyTo(camera, animationOptions)
-            } else {
-                Log.w("Search", "No coordinate found for result.")
+            val camera = cameraOptions {
+                center(coordinate)
+                zoom(14.0)
             }
+
+            val animationOptions = MapAnimationOptions.Builder()
+                .duration(3000L) // 3 seconds
+                .build()
+
+            mapViewportState.flyTo(camera, animationOptions)
         }
 
         override fun onResults(
@@ -230,6 +216,18 @@ fun handleSuggestionSelection(
             responseInfo: ResponseInfo
         ) {
             // handle multiple results (category, brand, etc.)
+            results.forEachIndexed { index, result ->
+                Log.d("Result[$index]", """
+                                      ID: ${result.id}
+                                      Name: ${result.name}
+                                      Description: ${result.descriptionText ?: "N/A"}
+                                      Place: ${result.address?.place ?: "N/A"}
+                                      Region: ${result.address?.region ?: "N/A"}
+                                      Country: ${result.address?.country ?: "N/A"}
+                         
+                                      -----
+                                  """.trimIndent())
+            }
         }
 
 
