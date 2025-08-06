@@ -15,18 +15,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+// Add imports for geojson Point & BoundingBox
+import com.mapbox.geojson.Point
+import com.mapbox.geojson.BoundingBox
+import com.mapbox.maps.dsl.cameraOptions
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.plugin.animation.MapAnimationOptions
-import com.mapbox.maps.dsl.cameraOptions
-import com.mapbox.search.SearchSelectionCallback
 import com.mapbox.search.ApiType
 import com.mapbox.search.ResponseInfo
 import com.mapbox.search.SearchEngine
 import com.mapbox.search.SearchEngineSettings
 import com.mapbox.search.SearchOptions
+import com.mapbox.search.SearchSuggestionsCallback
+import com.mapbox.search.SearchSelectionCallback
 import com.mapbox.search.result.SearchResult
 import com.mapbox.search.result.SearchSuggestion
 import com.mapbox.search.result.SearchSuggestionType.Category
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -61,9 +66,11 @@ fun SearchScreen(
                     searchEngine.search(
                         newQuery,
                         SearchOptions(
-                            limit = 10
+                            // Coorindates to Toronto's Distillery District
+                            proximity = Point.fromLngLat(-79.35954, 43.65050),
+                            limit = 10,
                         ),
-                        callback = object : com.mapbox.search.SearchSuggestionsCallback {
+                        callback = object : SearchSuggestionsCallback {
                             override fun onSuggestions(
                                 list: List<SearchSuggestion>,
                                 responseInfo: ResponseInfo
@@ -86,14 +93,14 @@ fun SearchScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                containerColor = Color.White,          // White background
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.White,          // White background
+                unfocusedContainerColor = Color.White,
                 focusedBorderColor = Color.Gray,       // Grey border when focused
                 unfocusedBorderColor = Color.LightGray // Grey border when unfocused (lighter)
             ),
             shape = RoundedCornerShape(8.dp)
         )
-
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -105,7 +112,7 @@ fun SearchScreen(
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top=8.dp, start=16.dp, end=16.dp)
+                    .padding(top = 8.dp)
                     .heightIn(max = 500.dp)
             ) {
                 val scrollState = rememberScrollState()
@@ -114,6 +121,7 @@ fun SearchScreen(
                         .padding(16.dp)
                         .verticalScroll(scrollState)
                 ) {
+
                     // Filter out category suggestion types
                     val filteredSuggestions = suggestions.filter { it.type !is Category }
 
@@ -121,10 +129,7 @@ fun SearchScreen(
 
                         val distanceKm = suggestion.distanceMeters?.div(1000.0)
                         val addressText = suggestion.fullAddress
-                            ?: listOfNotNull(
-                                suggestion.address?.region,
-                                suggestion.address?.country
-                            ).joinToString(", ")
+                            ?: listOfNotNull(suggestion.address?.region, suggestion.address?.country).joinToString(", ")
 
                         Row(
                             modifier = Modifier
@@ -198,6 +203,7 @@ fun handleSuggestionSelection(
             // When user selects a suggestion:
             onSuggestionSelected(result)
             val coordinate = result.coordinate
+
             val camera = cameraOptions {
                 center(coordinate)
                 zoom(14.0)
@@ -208,6 +214,7 @@ fun handleSuggestionSelection(
                 .build()
 
             mapViewportState.flyTo(camera, animationOptions)
+
         }
 
         override fun onResults(
@@ -216,18 +223,6 @@ fun handleSuggestionSelection(
             responseInfo: ResponseInfo
         ) {
             // handle multiple results (category, brand, etc.)
-            results.forEachIndexed { index, result ->
-                Log.d("Result[$index]", """
-                                      ID: ${result.id}
-                                      Name: ${result.name}
-                                      Description: ${result.descriptionText ?: "N/A"}
-                                      Place: ${result.address?.place ?: "N/A"}
-                                      Region: ${result.address?.region ?: "N/A"}
-                                      Country: ${result.address?.country ?: "N/A"}
-                         
-                                      -----
-                                  """.trimIndent())
-            }
         }
 
 
