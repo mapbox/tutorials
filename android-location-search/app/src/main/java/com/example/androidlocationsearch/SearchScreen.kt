@@ -16,8 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 // Add imports for geojson Point & BoundingBox
-import com.mapbox.geojson.Point
-import com.mapbox.geojson.BoundingBox
+// import com.mapbox.geojson.Point
+// import com.mapbox.geojson.BoundingBox
 import com.mapbox.maps.dsl.cameraOptions
 import com.mapbox.maps.extension.compose.animation.viewport.MapViewportState
 import com.mapbox.maps.plugin.animation.MapAnimationOptions
@@ -66,9 +66,12 @@ fun SearchScreen(
                     searchEngine.search(
                         newQuery,
                         SearchOptions(
-                            // Coorindates to Toronto's Distillery District
-                            proximity = Point.fromLngLat(-79.35954, 43.65050),
+                            // proximity = Point.fromLngLat(-79.35954, 43.65050),
                             limit = 10,
+                            // boundingBox = BoundingBox.fromPoints(
+                               // Point.fromLngLat(-79.49555, 43.60698), 
+                               // Point.fromLngLat(-79.29422, 43.75953)  
+                            // )
                         ),
                         callback = object : SearchSuggestionsCallback {
                             override fun onSuggestions(
@@ -238,5 +241,3 @@ fun handleSuggestionSelection(
         }
     })
 }
-
-
