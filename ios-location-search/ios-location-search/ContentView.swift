@@ -26,7 +26,7 @@ struct ContentView: View {
             // Map takes full screen as the base layer
             MapReader { proxy in
                 Map(viewport: $viewport) {
-                    // Conditionally add a marker annotation when a location is selected
+                    // Add a marker annotation when a location is selected
                     if let result = selectedResult, let coordinate = result.coordinate {
                         PointAnnotation(coordinate: CLLocationCoordinate2D(
                             latitude: coordinate.latitude,
