@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>MBXAccessToken</key>
-	<string>pk.eyJ1IjoiY2hyaXN3aG9uZ21hcGJveCIsImEiOiJjbDl6bzJ6N3EwMGczM3BudjZmbm5yOXFnIn0.lPhc5Z5H3byF_gf_Jz48Ug</string>
+	<string>YOUR_MAPBOX_ACCESS_TOKEN</string>
 </dict>
 </plist>
