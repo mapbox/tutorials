@@ -45,7 +45,7 @@ struct ContentView: View {
             VStack {
                 // Search component handles autocomplete and result selection
                 SearchScreen(onSuggestionSelected: handleSuggestionSelection)
-                Spacer()  // Push search to top of screen
+                Spacer()  // Pushes search UI to top of screen
             }
             .padding(.top, 50)  // Add padding to avoid status bar overlap
         }
