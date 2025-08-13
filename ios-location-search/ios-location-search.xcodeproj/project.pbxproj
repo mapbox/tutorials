@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D30AFACD2E3D3713000A3610 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30AFACC2E3D3713000A3610 /* SearchScreen.swift */; };
+		D357533B2D83583600186EDC /* simple_map_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D357533A2D83583600186EDC /* simple_map_swiftuiApp.swift */; };
+		D357533D2D83583600186EDC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D357533C2D83583600186EDC /* ContentView.swift */; };
+		D357533F2D83583800186EDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D357533E2D83583800186EDC /* Assets.xcassets */; };
+		D35753422D83583800186EDC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35753412D83583800186EDC /* Preview Assets.xcassets */; };
+		D357534C2D83583800186EDC /* simple_map_swiftuiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D357534B2D83583800186EDC /* simple_map_swiftuiTests.swift */; };
+		D35753562D83583800186EDC /* simple_map_swiftuiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35753552D83583800186EDC /* simple_map_swiftuiUITests.swift */; };
+		D35753582D83583800186EDC /* simple_map_swiftuiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35753572D83583800186EDC /* simple_map_swiftuiUITestsLaunchTests.swift */; };
+		D3E258DC2E05A626002C96FC /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = D3E258DB2E05A626002C96FC /* MapboxMaps */; };
+		D3E258E02E05AA1E002C96FC /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = D3E258DF2E05AA1E002C96FC /* MapboxSearch */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D35753482D83583800186EDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D357532F2D83583600186EDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D35753362D83583600186EDC;
+			remoteInfo = "ios-location-search";
+		};
+		D35753522D83583800186EDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D357532F2D83583600186EDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D35753362D83583600186EDC;
+			remoteInfo = "ios-location-search";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D30AFACC2E3D3713000A3610 /* SearchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		D35753372D83583600186EDC /* ios-location-search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-location-search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D357533A2D83583600186EDC /* simple_map_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_map_swiftuiApp.swift; sourceTree = "<group>"; };
+		D357533C2D83583600186EDC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D357533E2D83583800186EDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D35753412D83583800186EDC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D35753472D83583800186EDC /* ios-location-searchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-location-searchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D357534B2D83583800186EDC /* simple_map_swiftuiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_map_swiftuiTests.swift; sourceTree = "<group>"; };
+		D35753512D83583800186EDC /* ios-location-searchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-location-searchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35753552D83583800186EDC /* simple_map_swiftuiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_map_swiftuiUITests.swift; sourceTree = "<group>"; };
+		D35753572D83583800186EDC /* simple_map_swiftuiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_map_swiftuiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D35753642D83584D00186EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D35753342D83583600186EDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E258DC2E05A626002C96FC /* MapboxMaps in Frameworks */,
+				D3E258E02E05AA1E002C96FC /* MapboxSearch in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35753442D83583800186EDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D357534E2D83583800186EDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D357532E2D83583600186EDC = {
+			isa = PBXGroup;
+			children = (
+				D35753392D83583600186EDC /* ios-location-search */,
+				D357534A2D83583800186EDC /* ios-location-searchTests */,
+				D35753542D83583800186EDC /* ios-location-searchUITests */,
+				D35753382D83583600186EDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D35753382D83583600186EDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D35753372D83583600186EDC /* ios-location-search.app */,
+				D35753472D83583800186EDC /* ios-location-searchTests.xctest */,
+				D35753512D83583800186EDC /* ios-location-searchUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D35753392D83583600186EDC /* ios-location-search */ = {
+			isa = PBXGroup;
+			children = (
+				D35753642D83584D00186EDC /* Info.plist */,
+				D357533A2D83583600186EDC /* simple_map_swiftuiApp.swift */,
+				D357533C2D83583600186EDC /* ContentView.swift */,
+				D30AFACC2E3D3713000A3610 /* SearchScreen.swift */,
+				D357533E2D83583800186EDC /* Assets.xcassets */,
+				D35753402D83583800186EDC /* Preview Content */,
+			);
+			path = "ios-location-search";
+			sourceTree = "<group>";
+		};
+		D35753402D83583800186EDC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D35753412D83583800186EDC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D357534A2D83583800186EDC /* ios-location-searchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D357534B2D83583800186EDC /* simple_map_swiftuiTests.swift */,
+			);
+			path = "ios-location-searchTests";
+			sourceTree = "<group>";
+		};
+		D35753542D83583800186EDC /* ios-location-searchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D35753552D83583800186EDC /* simple_map_swiftuiUITests.swift */,
+				D35753572D83583800186EDC /* simple_map_swiftuiUITestsLaunchTests.swift */,
+			);
+			path = "ios-location-searchUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D35753362D83583600186EDC /* ios-location-search */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D357535B2D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-search" */;
+			buildPhases = (
+				D35753332D83583600186EDC /* Sources */,
+				D35753342D83583600186EDC /* Frameworks */,
+				D35753352D83583600186EDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-location-search";
+			packageProductDependencies = (
+				D3E258DB2E05A626002C96FC /* MapboxMaps */,
+				D3E258DF2E05AA1E002C96FC /* MapboxSearch */,
+			);
+			productName = "ios-location-search";
+			productReference = D35753372D83583600186EDC /* ios-location-search.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D35753462D83583800186EDC /* ios-location-searchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D357535E2D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-searchTests" */;
+			buildPhases = (
+				D35753432D83583800186EDC /* Sources */,
+				D35753442D83583800186EDC /* Frameworks */,
+				D35753452D83583800186EDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D35753492D83583800186EDC /* PBXTargetDependency */,
+			);
+			name = "ios-location-searchTests";
+			productName = "ios-location-searchTests";
+			productReference = D35753472D83583800186EDC /* ios-location-searchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D35753502D83583800186EDC /* ios-location-searchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D35753612D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-searchUITests" */;
+			buildPhases = (
+				D357534D2D83583800186EDC /* Sources */,
+				D357534E2D83583800186EDC /* Frameworks */,
+				D357534F2D83583800186EDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D35753532D83583800186EDC /* PBXTargetDependency */,
+			);
+			name = "ios-location-searchUITests";
+			productName = "ios-location-searchUITests";
+			productReference = D35753512D83583800186EDC /* ios-location-searchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D357532F2D83583600186EDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					D35753362D83583600186EDC = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					D35753462D83583800186EDC = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = D35753362D83583600186EDC;
+					};
+					D35753502D83583800186EDC = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = D35753362D83583600186EDC;
+					};
+				};
+			};
+			buildConfigurationList = D35753322D83583600186EDC /* Build configuration list for PBXProject "ios-location-search" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D357532E2D83583600186EDC;
+			packageReferences = (
+				D3E258DA2E05A626002C96FC /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				D3E258DE2E05A6FC002C96FC /* XCRemoteSwiftPackageReference "mapbox-search-ios" */,
+			);
+			productRefGroup = D35753382D83583600186EDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D35753362D83583600186EDC /* ios-location-search */,
+				D35753462D83583800186EDC /* ios-location-searchTests */,
+				D35753502D83583800186EDC /* ios-location-searchUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D35753352D83583600186EDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35753422D83583800186EDC /* Preview Assets.xcassets in Resources */,
+				D357533F2D83583800186EDC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35753452D83583800186EDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D357534F2D83583800186EDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D35753332D83583600186EDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D357533D2D83583600186EDC /* ContentView.swift in Sources */,
+				D357533B2D83583600186EDC /* simple_map_swiftuiApp.swift in Sources */,
+				D30AFACD2E3D3713000A3610 /* SearchScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35753432D83583800186EDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D357534C2D83583800186EDC /* simple_map_swiftuiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D357534D2D83583800186EDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35753562D83583800186EDC /* simple_map_swiftuiUITests.swift in Sources */,
+				D35753582D83583800186EDC /* simple_map_swiftuiUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D35753492D83583800186EDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D35753362D83583600186EDC /* ios-location-search */;
+			targetProxy = D35753482D83583800186EDC /* PBXContainerItemProxy */;
+		};
+		D35753532D83583800186EDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D35753362D83583600186EDC /* ios-location-search */;
+			targetProxy = D35753522D83583800186EDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D35753592D83583800186EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D357535A2D83583800186EDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D357535C2D83583800186EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ios-location-search/Preview Content\"";
+				DEVELOPMENT_TEAM = 3U77D9A28J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-location-search/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-search";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D357535D2D83583800186EDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ios-location-search/Preview Content\"";
+				DEVELOPMENT_TEAM = 3U77D9A28J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-location-search/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-search";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D357535F2D83583800186EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-searchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-location-search.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-location-search";
+			};
+			name = Debug;
+		};
+		D35753602D83583800186EDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-searchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-location-search.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-location-search";
+			};
+			name = Release;
+		};
+		D35753622D83583800186EDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-searchUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-location-search";
+			};
+			name = Debug;
+		};
+		D35753632D83583800186EDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-location-searchUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "ios-location-search";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D35753322D83583600186EDC /* Build configuration list for PBXProject "ios-location-search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D35753592D83583800186EDC /* Debug */,
+				D357535A2D83583800186EDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D357535B2D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-search" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D357535C2D83583800186EDC /* Debug */,
+				D357535D2D83583800186EDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D357535E2D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-searchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D357535F2D83583800186EDC /* Debug */,
+				D35753602D83583800186EDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D35753612D83583800186EDC /* Build configuration list for PBXNativeTarget "ios-location-searchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D35753622D83583800186EDC /* Debug */,
+				D35753632D83583800186EDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3E258DA2E05A626002C96FC /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.13.0;
+			};
+		};
+		D3E258DE2E05A6FC002C96FC /* XCRemoteSwiftPackageReference "mapbox-search-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-search-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 2.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3E258DB2E05A626002C96FC /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E258DA2E05A626002C96FC /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+		D3E258DF2E05AA1E002C96FC /* MapboxSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E258DE2E05A6FC002C96FC /* XCRemoteSwiftPackageReference "mapbox-search-ios" */;
+			productName = MapboxSearch;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D357532F2D83583600186EDC /* Project object */;
+}
