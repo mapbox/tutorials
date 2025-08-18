@@ -27,16 +27,15 @@ struct OfflineRegion {
     }
 }
 
-struct TileRegionDownloadView: View {
-    @Environment(\.dismiss) private var dismiss
-    
-    // state to track downloads
-    @State private var downloadingRegions: Set<String> = []
-    @State private var downloadProgress: [String: Float] = [:]
-    @State private var refreshTrigger = false // Trigger to refresh row views
-    
+// MARK: - View Model
+
+class TileRegionDownloadViewModel: ObservableObject {
+    @Published var downloadingRegions: Set<String> = []
+    @Published var downloadProgress: [String: Float] = [:]
+    @Published var refreshTrigger = false
+
     // define regions
-    private let regions = [
+    let regions = [
         OfflineRegion(
             id: "new-york-region",
             name: "New York",
@@ -68,20 +67,64 @@ struct TileRegionDownloadView: View {
             )
         )
     ]
-    
+
+    func downloadRegion(region: OfflineRegion) {
+        OfflineRegionManager.downloadRegion(
+            region: region,
+            downloadingRegions: downloadingRegions,
+            onDownloadingRegionsUpdate: { [weak self] updatedSet in
+                DispatchQueue.main.async {
+                    self?.downloadingRegions = updatedSet
+                }
+            },
+            onProgress: { [weak self] regionId, progress in
+                DispatchQueue.main.async {
+                    self?.downloadProgress[regionId] = progress
+                }
+            },
+            onCompletion: { [weak self] regionId, result in
+                DispatchQueue.main.async {
+                    self?.downloadProgress.removeValue(forKey: regionId)
+                    
+                    switch result {
+                    case .success(let tileRegion):
+                        print("Downloaded \(region.name): \(tileRegion.completedResourceSize) bytes")
+                    case .failure(let error):
+                        print("Failed to download \(region.name): \(error)")
+                    }
+                }
+            }
+        )
+    }
+
+    func clearAllRegions() {
+        OfflineRegionManager.clearAllRegions { [weak self] in
+            DispatchQueue.main.async {
+                self?.downloadingRegions.removeAll()
+                self?.downloadProgress.removeAll()
+                self?.refreshTrigger.toggle()
+            }
+        }
+    }
+}
+
+// MARK: - Main View
+
+struct TileRegionDownloadView: View {
+    @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel = TileRegionDownloadViewModel()
+
     var body: some View {
         NavigationView {
-            // List of regions
             List {
-                ForEach(regions, id: \.id) { region in
+                ForEach(viewModel.regions, id: \.id) { region in
                     RegionRowView(
-                        regionId: region.id,
-                        regionName: region.name,
-                        isDownloading: downloadingRegions.contains(region.id),
-                        progress: downloadProgress[region.id] ?? 0.0,
-                        refreshTrigger: refreshTrigger,
+                        region: region,
+                        isDownloading: viewModel.downloadingRegions.contains(region.id),
+                        progress: viewModel.downloadProgress[region.id] ?? 0.0,
+                        refreshTrigger: viewModel.refreshTrigger,
                         onDownload: {
-                            downloadRegion(region: region)
+                            viewModel.downloadRegion(region: region)
                         }
                     )
                 }
@@ -96,72 +139,31 @@ struct TileRegionDownloadView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Clear All", role: .destructive) {
-                        clearAllRegions()
+                        viewModel.clearAllRegions()
                     }
                     .tint(.red)
                 }
             }
         }
     }
-    
-    
-    private func downloadRegion(region: OfflineRegion) {
-        OfflineRegionManager.downloadRegion(
-            region: region,
-            downloadingRegions: downloadingRegions,
-            onDownloadingRegionsUpdate: { updatedSet in
-                DispatchQueue.main.async {
-                    self.downloadingRegions = updatedSet
-                }
-            },
-            onProgress: { regionId, progress in
-                DispatchQueue.main.async {
-                    self.downloadProgress[regionId] = progress
-                }
-            },
-            onCompletion: { regionId, result in
-                DispatchQueue.main.async {
-                    // Remove progress tracking since download is complete
-                    self.downloadProgress.removeValue(forKey: regionId)
-                    
-                    switch result {
-                    case .success(let tileRegion):
-                        print("Downloaded \(region.name): \(tileRegion.completedResourceSize) bytes")
-                    case .failure(let error):
-                        print("Failed to download \(region.name): \(error)")
-                    }
-                }
-            }
-        )
-    }
-    
-    private func clearAllRegions() {
-        OfflineRegionManager.clearAllRegions {
-            DispatchQueue.main.async {
-                // Reset UI state - this will trigger RegionRowView to refresh
-                self.downloadingRegions.removeAll()
-                self.downloadProgress.removeAll()
-                self.refreshTrigger.toggle() // Trigger refresh of all row views
-            }
-        }
-    }
 }
 
+// MARK: - Row View
+
 struct RegionRowView: View {
-    let regionId: String
-    let regionName: String
+    let region: OfflineRegion
     let isDownloading: Bool
     let progress: Float
     let refreshTrigger: Bool
     let onDownload: () -> Void
-    
+
     @State private var isDownloaded = false
     @State private var sizeInMB: Double = 0.0
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(regionName)
+                Text(region.name)
                     .font(.headline)
                 
                 if isDownloaded {
@@ -218,10 +220,10 @@ struct RegionRowView: View {
             checkIfDownloaded()
         }
     }
-    
+
     private func checkIfDownloaded() {
         let tileStore = TileStore.default
-        tileStore.tileRegion(forId: regionId) { result in
+        tileStore.tileRegion(forId: region.id) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let tileRegion):
