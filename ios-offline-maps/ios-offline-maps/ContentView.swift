@@ -9,44 +9,35 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             // Map takes full screen as the base layer
-            MapReader { proxy in
-                Map(initialViewport: .camera(
+            Map(
+                initialViewport: .camera(
                     center: CLLocationCoordinate2D(
                         latitude: 39.5,
                         longitude: -98.0
                     ),
-                    zoom: 2)) {
-                        
-                        
-                    }
-                    .mapStyle(.standard())  // Use the Mapbox Standard style
-                    .onMapLoaded { event in
-                        // Map is loaded and ready
-                        print("Map loaded successfully")
-                    }
-            }
+                    zoom: 2)
+                ) {
+                    
+                    
+                }
+                .ignoresSafeArea()
+        
             
             // Download button overlay
-            VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        showingDownloadView = true
-                    }) {
-                        HStack {
-                            Image(systemName: "arrow.down.circle.fill")
-                            Text("Manage Offline Regions")
-                        }
+            VStack(alignment: .trailing) {
+                Button(action: {
+                    showingDownloadView = true
+                }) {
+                    Label("Manage Offline Regions", systemImage: "arrow.down.circle.fill")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .shadow(radius: 3)
-                    }
-                    .padding()
                 }
-                Spacer()
+                .padding()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
         }
         .sheet(isPresented: $showingDownloadView) {
             TileRegionDownloadView()

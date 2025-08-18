@@ -42,14 +42,14 @@ struct TileRegionDownloadView: View {
             name: "New York",
             bounds: CoordinateBounds(
                 southwest: CLLocationCoordinate2D(
-                  latitude:  40.48398,
-                  longitude: -74.28127
+                    latitude:  40.48398,
+                    longitude: -74.28127
                 ),
                 northeast: CLLocationCoordinate2D(
-                  latitude: 40.98701,
-                  longitude: -73.58442
+                    latitude: 40.98701,
+                    longitude: -73.58442
                 )
-              )
+            )
         ),
         OfflineRegion(
             id: "london-region",
@@ -71,51 +71,37 @@ struct TileRegionDownloadView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                // Header
-                HStack {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
+            // List of regions
+            List {
+                ForEach(regions, id: \.id) { region in
+                    RegionRowView(
+                        regionId: region.id,
+                        regionName: region.name,
+                        isDownloading: downloadingRegions.contains(region.id),
+                        progress: downloadProgress[region.id] ?? 0.0,
+                        refreshTrigger: refreshTrigger,
+                        onDownload: {
+                            downloadRegion(region: region)
                         }
-                        .foregroundColor(.blue)
-                    }
-                    Spacer()
-                    Text("Offline Regions")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Spacer()
-                    Button(action: {
-                        clearAllRegions()
-                    }) {
-                        Text("Clear All")
-                            .font(.caption)
-                            .foregroundColor(.red)
+                    )
+                }
+            }
+            .navigationTitle("Offline Regions")
+            .toolbarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Done", role: .cancel) {
+                        dismiss()
                     }
                 }
-                .padding()
-                
-                // List of regions
-                List {
-                    ForEach(regions, id: \.id) { region in
-                        RegionRowView(
-                            regionId: region.id,
-                            regionName: region.name,
-                            isDownloading: downloadingRegions.contains(region.id),
-                            progress: downloadProgress[region.id] ?? 0.0,
-                            refreshTrigger: refreshTrigger,
-                            onDownload: {
-                                downloadRegion(region: region)
-                            }
-                        )
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Clear All", role: .destructive) {
+                        clearAllRegions()
                     }
+                    .tint(.red)
                 }
             }
         }
-        .navigationBarHidden(true)
     }
     
     

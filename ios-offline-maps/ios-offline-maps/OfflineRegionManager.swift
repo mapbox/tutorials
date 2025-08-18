@@ -11,41 +11,7 @@ import MapboxMaps
 class OfflineRegionManager {
     
     private static var hasDownloadedStylePack = false
-    
-    static func ensureStylePackDownloaded() {
-        // Only download once per app session
-        if hasDownloadedStylePack {
-            return
-        }
-        
-        let offlineManager = OfflineManager()
-        
-        let stylePackLoadOptions = StylePackLoadOptions(
-            glyphsRasterizationMode: .ideographsRasterizedLocally,
-            metadata: ["name": "mapbox-standard-stylepack"],
-            acceptExpired: false
-        )
-        
-        offlineManager.loadStylePack(
-            for: .standard,
-            loadOptions: stylePackLoadOptions!
-        ) { _ in } completion: { result in
-            switch result {
-            case let .success(stylePack):
-                // Style pack download finishes successfully
-                print("Downloaded style pack: \(stylePack)")
-                hasDownloadedStylePack = true
-                
-            case let .failure(error):
-                // Handle error occurred during the style pack download
-                if case StylePackError.canceled = error {
-                    print("Style pack download cancelled")
-                } else {
-                    print("Style pack download failed: \(error)")
-                }
-            }
-        }
-    }
+
     
     static func downloadRegion(
         region: OfflineRegion,
