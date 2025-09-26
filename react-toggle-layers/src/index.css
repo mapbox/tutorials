@@ -1,0 +1,7 @@
+:root{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+html, body, #root { height: 100%; margin: 0; }
+.app { height: 100%; display: flex; flex-direction: column; }
+
+/* Ensure the app takes the full viewport and children can stretch */

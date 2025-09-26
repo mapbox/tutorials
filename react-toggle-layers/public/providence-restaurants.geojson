@@ -1,0 +1,400 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Plant City",
+        "foodType": "vegetarian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40429610696128,
+          41.820799145503486
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Geoff's Superlative Sandwiches",
+        "foodType": "sandwich"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40388150945908,
+          41.820849683679285
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tizzy K's",
+        "foodType": "ice cream"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40444816821282,
+          41.82050029326277
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dave's Coffee",
+        "foodType": "coffee"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40445548685469,
+          41.82144758156548
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Yellow Door Taqueria",
+        "foodType": "mexican"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40862020482908,
+          41.82117105899309
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bayberry Garden",
+        "foodType": "seafood"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.4084300224185,
+          41.820120662404065
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dune Brothers Seafood",
+        "foodType": "seafood"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40822872314965,
+          41.819585266435325
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Xaco Taco",
+        "foodType": "mexican"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40744773473519,
+          41.81713123944573
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Brown Bee Coffee",
+        "foodType": "coffee"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40171317432929,
+          41.820311652580614
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The District",
+        "foodType": "american"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.4076055543124,
+          41.81731510731436
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lobanton - Asian Fusion Street Food & Market",
+        "foodType": "asian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41050706648292,
+          41.82404391867084
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ten Prime Steak & Sushi",
+        "foodType": "sushi"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40960724779002,
+          41.823083188656426
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Somo Kitchen & Sushi",
+        "foodType": "sushi"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40768203837845,
+          41.81686230599266
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ceremony South Main",
+        "foodType": "coffee"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40691342873572,
+          41.824002426544325
+        ],
+        "type": "Point"
+      },
+      "id": 14
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bacaro",
+        "foodType": "italian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40512789407894,
+          41.82175486971991
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Capriccio",
+        "foodType": "italian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.408634144023,
+          41.8237617921412
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Veggie Fun",
+        "foodType": "vegetarian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41005604068964,
+          41.82220185224523
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sura",
+        "foodType": "asian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41245205841118,
+          41.82292154743578
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mokban Korean Bistro",
+        "foodType": "korean"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41255456370241,
+          41.823217754856984
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PVD Noodles",
+        "foodType": "asian"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41299903386728,
+          41.82160948630687
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Small Point Cafe",
+        "foodType": "coffee"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.41247513017613,
+          41.82299682905054
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Landing Providence",
+        "foodType": "coffee"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.4086060240166,
+          41.82372075330281
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hemenway's Seafood Grill and Oyster Bar",
+        "foodType": "seafood"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40697829635906,
+          41.8241628265518
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Moonshine Alley",
+        "foodType": "american"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40942157369294,
+          41.822939829804
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DownCity Pizza & Sandwiches Providence",
+        "foodType": "sandwich"
+      },
+      "geometry": {
+        "coordinates": [
+          -71.40996901116218,
+          41.823999319874304
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Sott","foodType":"korean"},
+      "geometry": {
+        "coordinates": [
+          -71.41429586182288,
+          41.821959461667376
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"CAV Restaurant","foodType":"american"},
+      "geometry": {
+        "coordinates": [
+          -71.41145397740888,
+          41.81730780429632
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Dunkin Donuts", "foodType":"coffee"},
+      "geometry": {
+        "coordinates": [
+          -71.41026727873358,
+          41.82036304098142
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Sakis Pizzeria","foodType":"italian"},
+      "geometry": {
+        "coordinates": [
+          -71.41253453278455,
+          41.82188090824516
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
