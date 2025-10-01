@@ -1,8 +1,17 @@
-# Mapbox React App
+# React - Toggle Layers
 
-Minimal Vite + React starter that shows a Mapbox GL JS map.
+This tutorial will walk you through create several layers based on a set of GeoJSON data and creating toggles to allow you to turn those layers on and off.
 
-Setup
+You'll learn how to:
+- Add a map to a webpage using React & Vite.
+- Load data from a GeoJSON file
+- Create separate layers based on matching property data
+- Create toggles for each layer and onChange, toggle the related layer's visibility.
+- Create an all toggle that will turn all layers on and off
+- Create a pop up on click for the markers, adjust pointer visuals according to hover state and close out pop-up when toggling layers. 
+
+
+# How to run the example code
 
 1. Copy this directory or open it in VS Code.
 2. Add your Mapbox token to the `.env` file as VITE_MAPBOX_TOKEN.
@@ -13,8 +22,3 @@ Setup
 4. Run the dev server:
 
    npm run dev
-
-Notes
-
-- This project uses `mapbox-gl` v2. If you plan to use Mapbox's official styles and raster/vector tiles, you need a valid token. Without a token, the map will still initialize but tiles may fail to load.
-- For production build, follow Vite build instructions.

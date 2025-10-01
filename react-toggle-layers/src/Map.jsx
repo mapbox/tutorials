@@ -4,7 +4,7 @@ import customMarkerPng from './img/custom-marker.png'
 import restaurantsData from './data/providence-restaurants.json'
 import Popup from './Popup'
 
-import './map.css'
+import './app.css'
 
 export default function Map({ layerState }) {
   const mapContainer = useRef(null)
@@ -12,22 +12,23 @@ export default function Map({ layerState }) {
 
   const [popupData, setPopupData] = useState(null)
 
+  // Handles when a marker is clicked, setting grabbing the marker data, passing it to a popup and then renders the over the marker.
   const handleMarkerClick = (e) => {
     setPopupData({ lngLat: e.feature.geometry.coordinates, properties: e.feature.properties });
   }
 
+  // Initializes the map
   useEffect(() => {
     if (mapRef.current) return // init once
 
-    const token = import.meta.env.VITE_MAPBOX_TOKEN
-    mapboxgl.accessToken = token
+    mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN"
 
+    // creates map instance and centers viewport over Providence, RI, USA
     mapRef.current = new mapboxgl.Map({
       container: mapContainer.current,
       center: [-71.407, 41.8205],
       zoom: 15.5
     })
-
 
     // fetch geojson and create per-tag sources+layers
     mapRef.current.on('load', async () => {
@@ -53,12 +54,14 @@ export default function Map({ layerState }) {
 
         const layerId = `restaurants-${name}-symbol`
 
-        // add layer
+        // add a symbol layer for each food type, filtering to only show features with that food type.
         if (!mapRef.current.getLayer(layerId)) {
           mapRef.current.addLayer({
             id: layerId,
             type: 'symbol',
             source: 'restaurants',
+
+            // Grabs local image for custom marker, allows markers to over lap and colors each marker based on the related foodType color.
             layout: {
               'icon-image': 'custom-marker',
               'icon-size': 1,
@@ -66,20 +69,40 @@ export default function Map({ layerState }) {
             },
             'paint': {
               'icon-color': color,
-              'icon-opacity': 0.8
+              'icon-opacity': 0.8,
+              'icon-halo-color': '#ffffff',
+              'icon-halo-width': 2.5,
+              'icon-halo-blur': 1
             },
             filter: ['in', ['get', 'foodType'], ['literal', [name]]]
           })
         }
       }
 
-      // add a click interaction for each of the layers to be used to render the popup
+      // Adds interactivity - click and hover states
       layerState.forEach(layer => {
         const layerId = `restaurants-${layer.name}-symbol`
+        // add a click interaction for each of the layers to be used to render the popup
         mapRef.current.addInteraction(`${layerId}-click`, {
           type: 'click',
           target: { layerId },
           handler: handleMarkerClick
+        })
+        // change the cursor to a pointer when hovering over a marker
+        mapRef.current.addInteraction(`${layerId}-mouse-enter`, {
+          type: 'mouseenter',
+          target: { layerId },
+          handler:  () => {
+            mapRef.current.getCanvas().style.cursor = 'pointer';
+          }
+        })
+        // reset the cursor to default image when cursor leaves a marker
+        mapRef.current.addInteraction(`${layerId}-mouse-leave`, {
+          type: 'mouseleave',
+          target: { layerId },
+          handler:  () => {
+            mapRef.current.getCanvas().style.cursor = '';
+          }
         })
       })
     })
@@ -96,6 +119,10 @@ export default function Map({ layerState }) {
         mapRef.current.setLayoutProperty(layerId, 'visibility', visibility)
       }
     })
+
+    // Sends empty data to the popup object to hide it
+    setPopupData();
+
   }, [layerState])
 
 

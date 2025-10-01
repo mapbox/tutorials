@@ -1,7 +1,9 @@
 // make a component that will render a popup. It will recieve a prop mapRef which is a mapbox gl map instance.  It will also receive a prop called popupData which includes lngLat and properties to be rendered in the popup.
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import mapboxgl from 'mapbox-gl'     
+import mapboxgl from 'mapbox-gl'    
+
+import './app.css'
 
 export default function Popup({ mapRef, popupData }) {
   const popupRef = useRef(new mapboxgl.Popup({
@@ -14,6 +16,8 @@ export default function Popup({ mapRef, popupData }) {
 
   useEffect(() => {
     if (!mapRef.current) return // wait for map to initialize
+
+    //remove the popup if there is no selected marker
     if (!popupData) {
       popupRef.current.remove()
       return

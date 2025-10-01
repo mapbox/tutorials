@@ -4,8 +4,52 @@
   gap: 10px;
 }
 
-.toggle-switch {
+.checkbox {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.map-container {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100vh; /* fallback to ensure full viewport height */
+}
+
+/* Let mapbox-gl manage the canvas size to avoid visual stretching. */
+
+.popup .cuisines { margin-top: 6px; }
+.cuisine-badge {
+  display: inline-block;
+  background: rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 2px 8px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+.cuisine-empty { color: #666; }
+
+.map-wrapper { position: relative; height: 100%; }
+.map-controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.9);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+.map-controls button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.map-controls button.active {
+  background: #1976d2;
+  color: white;
+  border-color: #1565c0;
 }

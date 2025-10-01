@@ -1,7 +1,11 @@
 import React from 'react'
 
+import './app.css'
+
+// creates a series of checkboxes to toggle layers on and off. One for each type of food and one to toggle on and off all layers.
 const LayerCheckboxes = ({ layerState, setLayerState }) => {
 
+    // Handles when a layer checkbox is toggled, turning related layers visible when toggled on and off.
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target
         setLayerState(prevLayers => {
@@ -11,6 +15,7 @@ const LayerCheckboxes = ({ layerState, setLayerState }) => {
         })
     }
 
+    // Handles when "All" checkbox is toggled, turning all layers on or off.
     const handleAllCheckboxChange = (event) => {
         const { checked } = event.target
         setLayerState(prevLayers => {
@@ -25,10 +30,10 @@ const LayerCheckboxes = ({ layerState, setLayerState }) => {
     return (
         <div className="map-controls">
             {/* "All" checkbox with indeterminate state */}
-            <div className="toggle-switch">
+            <div className="checkbox">
                 <input
                     type="checkbox"
-                    className="toggle-switch-checkbox"
+                    className="checkbox-input"
                     name="all"
                     checked={allChecked}
                     ref={input => {
@@ -36,24 +41,24 @@ const LayerCheckboxes = ({ layerState, setLayerState }) => {
                     }}
                     onChange={handleAllCheckboxChange}
                 />
-                <label className="toggle-switch-label" htmlFor="all">
-                    <span className="toggle-switch-inner" />
-                    <span className="toggle-switch-switch" />
+                <label className="checkbox-label" htmlFor="all">
+                    <span className="checkbox-inner" />
+                    <span className="checkbox-switch" />
                 </label>
                 All
             </div>
             {layerState.map((layer) => (
-                <div key={layer.name} className="toggle-switch">
+                <div key={layer.name} className="checkbox">
                     <input
                         type="checkbox"
-                        className="toggle-switch-checkbox"
+                        className="checkbox-input"
                         name={layer.name}
                         checked={layer.isChecked}
                         onChange={handleCheckboxChange}
                     />
-                    <label className="toggle-switch-label" htmlFor={layer.name}>
-                        <span className="toggle-switch-inner" />
-                        <span className="toggle-switch-switch" />
+                    <label className="checkbox-label" htmlFor={layer.name}>
+                        <span className="checkbox-inner" />
+                        <span className="checkbox-switch" />
                     </label>
                     <div 
                         className="color-indicator"
