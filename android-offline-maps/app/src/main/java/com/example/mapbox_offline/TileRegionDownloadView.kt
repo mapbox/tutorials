@@ -80,7 +80,7 @@ fun RegionRow(
     var isDownloaded by remember { mutableStateOf(false) }
     var sizeInMB by remember { mutableStateOf(0.0) }
     val TAG = "RegionRow-${region.id}"
-    val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore!!
+    val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore
 
 
     fun checkIfDownloaded() {
