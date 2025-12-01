@@ -1,5 +1,6 @@
 package com.example.mapbox_offline
 
+import android.content.Context
 import android.util.Log
 import com.mapbox.bindgen.Value
 import com.mapbox.geojson.Geometry
@@ -7,6 +8,7 @@ import com.mapbox.maps.Style
 import com.mapbox.common.TileRegion
 import com.mapbox.common.TileRegionLoadOptions
 import com.mapbox.common.TileStore
+import com.mapbox.common.TilesetDescriptor
 import com.mapbox.maps.TilesetDescriptorOptions
 import com.mapbox.maps.StylePackLoadOptions
 import java.util.concurrent.atomic.AtomicReference
@@ -14,43 +16,16 @@ import com.mapbox.maps.GlyphsRasterizationMode
 import com.mapbox.maps.OfflineManager
 import com.mapbox.common.MapboxOptions
 import com.mapbox.maps.mapsOptions
-import com.mapbox.geojson.Point
-import com.mapbox.geojson.Polygon
-import com.mapbox.maps.CoordinateBounds
-
-data class OfflineRegion(
-    val id: String,
-    val name: String,
-    val bounds: CoordinateBounds
-) {
-    // convert CoordinateBounds to Polygon (closed rectangular ring)
-    val polygon: Polygon
-        get() {
-            val sw = bounds.southwest
-            val ne = bounds.northeast
-            val coords = listOf(
-                Point.fromLngLat(sw.longitude(), sw.latitude()),
-                Point.fromLngLat(ne.longitude(), sw.latitude()),
-                Point.fromLngLat(ne.longitude(), ne.latitude()),
-                Point.fromLngLat(sw.longitude(), ne.latitude()),
-                Point.fromLngLat(sw.longitude(), sw.latitude())
-            )
-            return Polygon.fromLngLats(listOf(coords))
-        }
-}
 
 
 object OfflineRegionManager {
     private const val TAG = "OfflineRegionManager"
-    private const val STYLE_URI = Style.STANDARD
-    private const val MIN_ZOOM = 10.0
-    private const val MAX_ZOOM = 14.0
-    
     private val offlineManager: OfflineManager = OfflineManager()
-    private val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore
+    private val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore!!
 
-
-    fun ensureStylePackDownloaded(activity: MainActivity) {
+    // Downloads the style pack for offline rendering. The SDK caches the style pack
+    // and will not re-download if already present.
+    fun ensureStylePackDownloaded(context: Context) {
         try {
             val stylePackOptions = StylePackLoadOptions.Builder()
                 .glyphsRasterizationMode(GlyphsRasterizationMode.IDEOGRAPHS_RASTERIZED_LOCALLY)
@@ -80,6 +55,8 @@ object OfflineRegionManager {
         }
     }
 
+    // Downloads map tiles for a specified region within configured zoom levels.
+    // Tracks progress and notifies via callbacks.
     fun downloadRegion(
         region: OfflineRegion,
         downloadingRegions: Set<String>,
@@ -89,13 +66,13 @@ object OfflineRegionManager {
     ) {
         if (downloadingRegions.contains(region.id)) {
             Log.d(TAG, "Region ${region.id} is already downloading; skipping")
-            return
+//            return
         }
 
         val tilesetDescriptorOptions = TilesetDescriptorOptions.Builder()
-            .styleURI(STYLE_URI)
-            .minZoom(MIN_ZOOM.toInt().toByte())
-            .maxZoom(MAX_ZOOM.toInt().toByte())
+            .styleURI(Style.STANDARD)
+            .minZoom(10)
+            .maxZoom(14)
             .build()
 
         val tilesetDescriptor = offlineManager.createTilesetDescriptor(tilesetDescriptorOptions)
@@ -156,6 +133,7 @@ object OfflineRegionManager {
 
     }
 
+    // Removes all downloaded tile regions and clears the ambient cache.
     fun clearAllRegions(onCompletion: () -> Unit) {
         tileStore?.getAllTileRegions { result ->
             if (result.isValue) {
@@ -169,6 +147,7 @@ object OfflineRegionManager {
                         }
                         onCompletion()
                     }
+//                    return
                 }
 
                 val removalsPending = AtomicReference(tileRegions.size)
