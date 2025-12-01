@@ -33,7 +33,7 @@ This project contains source code for the Mapbox tutorial [Getting Started with 
    ```
 
 3. Add your Mapbox access token:
-   - Android: Update the placeholder in `android/app/src/main/res/values/mapbox_access_token.xml`
+   - Android: Replace YOUR_MAPBOX_ACCESS_TOKEN in `android/app/src/main/res/values/mapbox_access_token.xml` with your access token,
    - iOS: Update the placeholder in `ios/Info.plist`
 
 4. Install iOS dependencies (iOS only):
