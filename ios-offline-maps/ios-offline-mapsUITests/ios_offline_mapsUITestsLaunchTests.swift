@@ -1,8 +1,8 @@
 //
 //  ios_offline_mapsUITestsLaunchTests.swift
-//  ios-offline-mapsUITests
+//  ios_offline_mapsUITests
 //
-//  Created by Chris Whong on 8/13/25.
+//  Created by Chris Whong on 9/17/25.
 //
 
 import XCTest

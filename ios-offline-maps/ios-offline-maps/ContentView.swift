@@ -1,14 +1,11 @@
-// Import necessary frameworks for the app
-import SwiftUI          // For the user interface
-import MapboxMaps       // For map rendering and interaction
-import CoreLocation
+import SwiftUI
+import MapboxMaps
 
 struct ContentView: View {
     @State private var showingDownloadView = false
     
     var body: some View {
         ZStack {
-            // Map takes full screen as the base layer
             Map(
                 initialViewport: .camera(
                     center: CLLocationCoordinate2D(
@@ -16,13 +13,8 @@ struct ContentView: View {
                         longitude: -98.0
                     ),
                     zoom: 2)
-                ) {
-                    
-                    
-                }
-                .ignoresSafeArea()
-        
-            
+            )
+            .ignoresSafeArea()
             // Download button overlay
             VStack(alignment: .trailing) {
                 Button(action: {

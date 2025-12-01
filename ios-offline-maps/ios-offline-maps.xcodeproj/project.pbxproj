@@ -7,57 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D34C4E6B2E4CD3B300A2F682 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = D34C4E6A2E4CD3B300A2F682 /* MapboxMaps */; };
+		D311B6492E7B2A1000452BA1 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = D311B6482E7B2A1000452BA1 /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D34C4E472E4CD31B00A2F682 /* PBXContainerItemProxy */ = {
+		D311B6292E7B298E00452BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D34C4E312E4CD31900A2F682 /* Project object */;
+			containerPortal = D311B6132E7B298B00452BA1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D34C4E382E4CD31900A2F682;
+			remoteGlobalIDString = D311B61A2E7B298B00452BA1;
 			remoteInfo = "ios-offline-maps";
 		};
-		D34C4E512E4CD31B00A2F682 /* PBXContainerItemProxy */ = {
+		D311B6332E7B298E00452BA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D34C4E312E4CD31900A2F682 /* Project object */;
+			containerPortal = D311B6132E7B298B00452BA1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D34C4E382E4CD31900A2F682;
+			remoteGlobalIDString = D311B61A2E7B298B00452BA1;
 			remoteInfo = "ios-offline-maps";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D34C4E392E4CD31900A2F682 /* ios-offline-maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-offline-maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D34C4E462E4CD31B00A2F682 /* ios-offline-mapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-offline-mapsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D34C4E502E4CD31B00A2F682 /* ios-offline-mapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-offline-mapsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D311B61B2E7B298B00452BA1 /* ios-offline-maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-offline-maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D311B6282E7B298E00452BA1 /* ios-offline-mapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-offline-mapsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D311B6322E7B298E00452BA1 /* ios-offline-mapsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-offline-mapsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D34C4E6D2E4CD42100A2F682 /* Exceptions for "ios-offline-maps" folder in "ios-offline-maps" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = D34C4E382E4CD31900A2F682 /* ios-offline-maps */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D34C4E3B2E4CD31900A2F682 /* ios-offline-maps */ = {
+		D311B61D2E7B298B00452BA1 /* ios-offline-maps */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D34C4E6D2E4CD42100A2F682 /* Exceptions for "ios-offline-maps" folder in "ios-offline-maps" target */,
-			);
 			path = "ios-offline-maps";
 			sourceTree = "<group>";
 		};
-		D34C4E492E4CD31B00A2F682 /* ios-offline-mapsTests */ = {
+		D311B62B2E7B298E00452BA1 /* ios-offline-mapsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "ios-offline-mapsTests";
 			sourceTree = "<group>";
 		};
-		D34C4E532E4CD31B00A2F682 /* ios-offline-mapsUITests */ = {
+		D311B6352E7B298E00452BA1 /* ios-offline-mapsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "ios-offline-mapsUITests";
 			sourceTree = "<group>";
@@ -65,22 +52,22 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D34C4E362E4CD31900A2F682 /* Frameworks */ = {
+		D311B6182E7B298B00452BA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34C4E6B2E4CD3B300A2F682 /* MapboxMaps in Frameworks */,
+				D311B6492E7B2A1000452BA1 /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E432E4CD31B00A2F682 /* Frameworks */ = {
+		D311B6252E7B298E00452BA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E4D2E4CD31B00A2F682 /* Frameworks */ = {
+		D311B62F2E7B298E00452BA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -90,22 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D34C4E302E4CD31900A2F682 = {
+		D311B6122E7B298B00452BA1 = {
 			isa = PBXGroup;
 			children = (
-				D34C4E3B2E4CD31900A2F682 /* ios-offline-maps */,
-				D34C4E492E4CD31B00A2F682 /* ios-offline-mapsTests */,
-				D34C4E532E4CD31B00A2F682 /* ios-offline-mapsUITests */,
-				D34C4E3A2E4CD31900A2F682 /* Products */,
+				D311B61D2E7B298B00452BA1 /* ios-offline-maps */,
+				D311B62B2E7B298E00452BA1 /* ios-offline-mapsTests */,
+				D311B6352E7B298E00452BA1 /* ios-offline-mapsUITests */,
+				D311B61C2E7B298B00452BA1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D34C4E3A2E4CD31900A2F682 /* Products */ = {
+		D311B61C2E7B298B00452BA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D34C4E392E4CD31900A2F682 /* ios-offline-maps.app */,
-				D34C4E462E4CD31B00A2F682 /* ios-offline-mapsTests.xctest */,
-				D34C4E502E4CD31B00A2F682 /* ios-offline-mapsUITests.xctest */,
+				D311B61B2E7B298B00452BA1 /* ios-offline-maps.app */,
+				D311B6282E7B298E00452BA1 /* ios-offline-mapsTests.xctest */,
+				D311B6322E7B298E00452BA1 /* ios-offline-mapsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,138 +100,138 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D34C4E382E4CD31900A2F682 /* ios-offline-maps */ = {
+		D311B61A2E7B298B00452BA1 /* ios-offline-maps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D34C4E5A2E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-maps" */;
+			buildConfigurationList = D311B63C2E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-maps" */;
 			buildPhases = (
-				D34C4E352E4CD31900A2F682 /* Sources */,
-				D34C4E362E4CD31900A2F682 /* Frameworks */,
-				D34C4E372E4CD31900A2F682 /* Resources */,
+				D311B6172E7B298B00452BA1 /* Sources */,
+				D311B6182E7B298B00452BA1 /* Frameworks */,
+				D311B6192E7B298B00452BA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D34C4E3B2E4CD31900A2F682 /* ios-offline-maps */,
+				D311B61D2E7B298B00452BA1 /* ios-offline-maps */,
 			);
 			name = "ios-offline-maps";
 			packageProductDependencies = (
-				D34C4E6A2E4CD3B300A2F682 /* MapboxMaps */,
+				D311B6482E7B2A1000452BA1 /* MapboxMaps */,
 			);
 			productName = "ios-offline-maps";
-			productReference = D34C4E392E4CD31900A2F682 /* ios-offline-maps.app */;
+			productReference = D311B61B2E7B298B00452BA1 /* ios-offline-maps.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D34C4E452E4CD31B00A2F682 /* ios-offline-mapsTests */ = {
+		D311B6272E7B298E00452BA1 /* ios-offline-mapsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D34C4E5D2E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-mapsTests" */;
+			buildConfigurationList = D311B63F2E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-mapsTests" */;
 			buildPhases = (
-				D34C4E422E4CD31B00A2F682 /* Sources */,
-				D34C4E432E4CD31B00A2F682 /* Frameworks */,
-				D34C4E442E4CD31B00A2F682 /* Resources */,
+				D311B6242E7B298E00452BA1 /* Sources */,
+				D311B6252E7B298E00452BA1 /* Frameworks */,
+				D311B6262E7B298E00452BA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D34C4E482E4CD31B00A2F682 /* PBXTargetDependency */,
+				D311B62A2E7B298E00452BA1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D34C4E492E4CD31B00A2F682 /* ios-offline-mapsTests */,
+				D311B62B2E7B298E00452BA1 /* ios-offline-mapsTests */,
 			);
 			name = "ios-offline-mapsTests";
 			packageProductDependencies = (
 			);
 			productName = "ios-offline-mapsTests";
-			productReference = D34C4E462E4CD31B00A2F682 /* ios-offline-mapsTests.xctest */;
+			productReference = D311B6282E7B298E00452BA1 /* ios-offline-mapsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D34C4E4F2E4CD31B00A2F682 /* ios-offline-mapsUITests */ = {
+		D311B6312E7B298E00452BA1 /* ios-offline-mapsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D34C4E602E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-mapsUITests" */;
+			buildConfigurationList = D311B6422E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-mapsUITests" */;
 			buildPhases = (
-				D34C4E4C2E4CD31B00A2F682 /* Sources */,
-				D34C4E4D2E4CD31B00A2F682 /* Frameworks */,
-				D34C4E4E2E4CD31B00A2F682 /* Resources */,
+				D311B62E2E7B298E00452BA1 /* Sources */,
+				D311B62F2E7B298E00452BA1 /* Frameworks */,
+				D311B6302E7B298E00452BA1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D34C4E522E4CD31B00A2F682 /* PBXTargetDependency */,
+				D311B6342E7B298E00452BA1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D34C4E532E4CD31B00A2F682 /* ios-offline-mapsUITests */,
+				D311B6352E7B298E00452BA1 /* ios-offline-mapsUITests */,
 			);
 			name = "ios-offline-mapsUITests";
 			packageProductDependencies = (
 			);
 			productName = "ios-offline-mapsUITests";
-			productReference = D34C4E502E4CD31B00A2F682 /* ios-offline-mapsUITests.xctest */;
+			productReference = D311B6322E7B298E00452BA1 /* ios-offline-mapsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D34C4E312E4CD31900A2F682 /* Project object */ = {
+		D311B6132E7B298B00452BA1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					D34C4E382E4CD31900A2F682 = {
-						CreatedOnToolsVersion = 16.4;
+					D311B61A2E7B298B00452BA1 = {
+						CreatedOnToolsVersion = 26.0;
 					};
-					D34C4E452E4CD31B00A2F682 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = D34C4E382E4CD31900A2F682;
+					D311B6272E7B298E00452BA1 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = D311B61A2E7B298B00452BA1;
 					};
-					D34C4E4F2E4CD31B00A2F682 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = D34C4E382E4CD31900A2F682;
+					D311B6312E7B298E00452BA1 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = D311B61A2E7B298B00452BA1;
 					};
 				};
 			};
-			buildConfigurationList = D34C4E342E4CD31900A2F682 /* Build configuration list for PBXProject "ios-offline-maps" */;
+			buildConfigurationList = D311B6162E7B298B00452BA1 /* Build configuration list for PBXProject "ios-offline-maps" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = D34C4E302E4CD31900A2F682;
+			mainGroup = D311B6122E7B298B00452BA1;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D34C4E692E4CD3B300A2F682 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				D311B6472E7B2A1000452BA1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D34C4E3A2E4CD31900A2F682 /* Products */;
+			productRefGroup = D311B61C2E7B298B00452BA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D34C4E382E4CD31900A2F682 /* ios-offline-maps */,
-				D34C4E452E4CD31B00A2F682 /* ios-offline-mapsTests */,
-				D34C4E4F2E4CD31B00A2F682 /* ios-offline-mapsUITests */,
+				D311B61A2E7B298B00452BA1 /* ios-offline-maps */,
+				D311B6272E7B298E00452BA1 /* ios-offline-mapsTests */,
+				D311B6312E7B298E00452BA1 /* ios-offline-mapsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D34C4E372E4CD31900A2F682 /* Resources */ = {
+		D311B6192E7B298B00452BA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E442E4CD31B00A2F682 /* Resources */ = {
+		D311B6262E7B298E00452BA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E4E2E4CD31B00A2F682 /* Resources */ = {
+		D311B6302E7B298E00452BA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,21 +241,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D34C4E352E4CD31900A2F682 /* Sources */ = {
+		D311B6172E7B298B00452BA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E422E4CD31B00A2F682 /* Sources */ = {
+		D311B6242E7B298E00452BA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D34C4E4C2E4CD31B00A2F682 /* Sources */ = {
+		D311B62E2E7B298E00452BA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,20 +265,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D34C4E482E4CD31B00A2F682 /* PBXTargetDependency */ = {
+		D311B62A2E7B298E00452BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D34C4E382E4CD31900A2F682 /* ios-offline-maps */;
-			targetProxy = D34C4E472E4CD31B00A2F682 /* PBXContainerItemProxy */;
+			target = D311B61A2E7B298B00452BA1 /* ios-offline-maps */;
+			targetProxy = D311B6292E7B298E00452BA1 /* PBXContainerItemProxy */;
 		};
-		D34C4E522E4CD31B00A2F682 /* PBXTargetDependency */ = {
+		D311B6342E7B298E00452BA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D34C4E382E4CD31900A2F682 /* ios-offline-maps */;
-			targetProxy = D34C4E512E4CD31B00A2F682 /* PBXContainerItemProxy */;
+			target = D311B61A2E7B298B00452BA1 /* ios-offline-maps */;
+			targetProxy = D311B6332E7B298E00452BA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		D34C4E582E4CD31B00A2F682 /* Debug */ = {
+		D311B63A2E7B298E00452BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -343,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -354,7 +341,7 @@
 			};
 			name = Debug;
 		};
-		D34C4E592E4CD31B00A2F682 /* Release */ = {
+		D311B63B2E7B298E00452BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -400,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -410,7 +397,7 @@
 			};
 			name = Release;
 		};
-		D34C4E5B2E4CD31B00A2F682 /* Debug */ = {
+		D311B63D2E7B298E00452BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -432,13 +419,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D34C4E5C2E4CD31B00A2F682 /* Release */ = {
+		D311B63E2E7B298E00452BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -460,49 +451,59 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-maps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		D34C4E5E2E4CD31B00A2F682 /* Debug */ = {
+		D311B6402E7B298E00452BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-mapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-offline-maps.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-offline-maps";
 			};
 			name = Debug;
 		};
-		D34C4E5F2E4CD31B00A2F682 /* Release */ = {
+		D311B6412E7B298E00452BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-mapsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-offline-maps.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ios-offline-maps";
 			};
 			name = Release;
 		};
-		D34C4E612E4CD31B00A2F682 /* Debug */ = {
+		D311B6432E7B298E00452BA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -511,14 +512,17 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-mapsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "ios-offline-maps";
 			};
 			name = Debug;
 		};
-		D34C4E622E4CD31B00A2F682 /* Release */ = {
+		D311B6442E7B298E00452BA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -527,7 +531,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.ios-offline-mapsUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "ios-offline-maps";
@@ -537,38 +544,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D34C4E342E4CD31900A2F682 /* Build configuration list for PBXProject "ios-offline-maps" */ = {
+		D311B6162E7B298B00452BA1 /* Build configuration list for PBXProject "ios-offline-maps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D34C4E582E4CD31B00A2F682 /* Debug */,
-				D34C4E592E4CD31B00A2F682 /* Release */,
+				D311B63A2E7B298E00452BA1 /* Debug */,
+				D311B63B2E7B298E00452BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D34C4E5A2E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-maps" */ = {
+		D311B63C2E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-maps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D34C4E5B2E4CD31B00A2F682 /* Debug */,
-				D34C4E5C2E4CD31B00A2F682 /* Release */,
+				D311B63D2E7B298E00452BA1 /* Debug */,
+				D311B63E2E7B298E00452BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D34C4E5D2E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-mapsTests" */ = {
+		D311B63F2E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-mapsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D34C4E5E2E4CD31B00A2F682 /* Debug */,
-				D34C4E5F2E4CD31B00A2F682 /* Release */,
+				D311B6402E7B298E00452BA1 /* Debug */,
+				D311B6412E7B298E00452BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D34C4E602E4CD31B00A2F682 /* Build configuration list for PBXNativeTarget "ios-offline-mapsUITests" */ = {
+		D311B6422E7B298E00452BA1 /* Build configuration list for PBXNativeTarget "ios-offline-mapsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D34C4E612E4CD31B00A2F682 /* Debug */,
-				D34C4E622E4CD31B00A2F682 /* Release */,
+				D311B6432E7B298E00452BA1 /* Debug */,
+				D311B6442E7B298E00452BA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -576,23 +583,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D34C4E692E4CD3B300A2F682 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+		D311B6472E7B2A1000452BA1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D34C4E6A2E4CD3B300A2F682 /* MapboxMaps */ = {
+		D311B6482E7B2A1000452BA1 /* MapboxMaps */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D34C4E692E4CD3B300A2F682 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			package = D311B6472E7B2A1000452BA1 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
 			productName = MapboxMaps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = D34C4E312E4CD31900A2F682 /* Project object */;
+	rootObject = D311B6132E7B298B00452BA1 /* Project object */;
 }

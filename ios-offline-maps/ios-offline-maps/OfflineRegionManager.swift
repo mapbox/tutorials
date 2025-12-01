@@ -1,17 +1,56 @@
-//
-//  OfflineRegionManager.swift
-//  simple-map-swiftui
-//
-//  Created on 8/12/25.
-//
-
 import Foundation
 import MapboxMaps
 
-class OfflineRegionManager {
+// offline region configuration struct
+struct OfflineRegion {
+    let id: String
+    let name: String
+    let bounds: CoordinateBounds
     
-    private static var hasDownloadedStylePack = false
+    // convert CoordinateBounds to Polygon
+    var polygon: Polygon {
+        let coordinates = [
+            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.southwest.longitude),
+            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.northeast.longitude),
+            CLLocationCoordinate2D(latitude: bounds.northeast.latitude, longitude: bounds.northeast.longitude),
+            CLLocationCoordinate2D(latitude: bounds.northeast.latitude, longitude: bounds.southwest.longitude),
+            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.southwest.longitude)
+        ]
+        return Polygon([coordinates])
+    }
+}
 
+class OfflineRegionManager {
+
+    // ensure the style pack for the Mapbox Standard Style is downloaded
+    // the SDK will not re-download it if it's already present
+    static func ensureStylePackDownloaded() {
+        let offlineManager = OfflineManager()
+        
+        let stylePackLoadOptions = StylePackLoadOptions(
+            glyphsRasterizationMode: .ideographsRasterizedLocally,
+            metadata: ["name": "mapbox-standard-stylepack"],
+            acceptExpired: false
+        )
+        
+        offlineManager.loadStylePack(
+            for: .standard,
+            loadOptions: stylePackLoadOptions!
+        ) { _ in } completion: { result in
+            switch result {
+            case let .success(stylePack):
+                // Style pack download finishes successfully
+                print("Downloaded style pack: \(stylePack)")
+            case let .failure(error):
+                // Handle error occurred during the style pack download
+                if case StylePackError.canceled = error {
+                    print("Style pack download cancelled")
+                } else {
+                    print("Style pack download failed: \(error)")
+                }
+            }
+        }
+    }
     
     static func downloadRegion(
         region: OfflineRegion,

@@ -1,31 +1,8 @@
-//
-//  TileRegionDownloadView.swift
-//  simple-map-swiftui
-//
-//  Created on 8/12/25.
-//
-
 import SwiftUI
 import MapboxMaps
+internal import Combine
 
-// offline region configuration struct
-struct OfflineRegion {
-    let id: String
-    let name: String
-    let bounds: CoordinateBounds
-    
-    // convert CoordinateBounds to Polygon
-    var polygon: Polygon {
-        let coordinates = [
-            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.southwest.longitude),
-            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.northeast.longitude),
-            CLLocationCoordinate2D(latitude: bounds.northeast.latitude, longitude: bounds.northeast.longitude),
-            CLLocationCoordinate2D(latitude: bounds.northeast.latitude, longitude: bounds.southwest.longitude),
-            CLLocationCoordinate2D(latitude: bounds.southwest.latitude, longitude: bounds.southwest.longitude)
-        ]
-        return Polygon([coordinates])
-    }
-}
+
 
 // MARK: - View Model
 
@@ -67,45 +44,45 @@ class TileRegionDownloadViewModel: ObservableObject {
             )
         )
     ]
-
+    
     func downloadRegion(region: OfflineRegion) {
-        OfflineRegionManager.downloadRegion(
-            region: region,
-            downloadingRegions: downloadingRegions,
-            onDownloadingRegionsUpdate: { [weak self] updatedSet in
-                DispatchQueue.main.async {
-                    self?.downloadingRegions = updatedSet
-                }
-            },
-            onProgress: { [weak self] regionId, progress in
-                DispatchQueue.main.async {
-                    self?.downloadProgress[regionId] = progress
-                }
-            },
-            onCompletion: { [weak self] regionId, result in
-                DispatchQueue.main.async {
-                    self?.downloadProgress.removeValue(forKey: regionId)
-                    
-                    switch result {
-                    case .success(let tileRegion):
-                        print("Downloaded \(region.name): \(tileRegion.completedResourceSize) bytes")
-                    case .failure(let error):
-                        print("Failed to download \(region.name): \(error)")
-                    }
-                }
-            }
-        )
-    }
+           OfflineRegionManager.downloadRegion(
+               region: region,
+               downloadingRegions: downloadingRegions,
+               onDownloadingRegionsUpdate: { [weak self] updatedSet in
+                   DispatchQueue.main.async {
+                       self?.downloadingRegions = updatedSet
+                   }
+               },
+               onProgress: { [weak self] regionId, progress in
+                   DispatchQueue.main.async {
+                       self?.downloadProgress[regionId] = progress
+                   }
+               },
+               onCompletion: { [weak self] regionId, result in
+                   DispatchQueue.main.async {
+                       self?.downloadProgress.removeValue(forKey: regionId)
+                       
+                       switch result {
+                       case .success(let tileRegion):
+                           print("Downloaded \(region.name): \(tileRegion.completedResourceSize) bytes")
+                       case .failure(let error):
+                           print("Failed to download \(region.name): \(error)")
+                       }
+                   }
+               }
+           )
+       }
 
-    func clearAllRegions() {
-        OfflineRegionManager.clearAllRegions { [weak self] in
-            DispatchQueue.main.async {
-                self?.downloadingRegions.removeAll()
-                self?.downloadProgress.removeAll()
-                self?.refreshTrigger.toggle()
-            }
-        }
-    }
+       func clearAllRegions() {
+           OfflineRegionManager.clearAllRegions { [weak self] in
+               DispatchQueue.main.async {
+                   self?.downloadingRegions.removeAll()
+                   self?.downloadProgress.removeAll()
+                   self?.refreshTrigger.toggle()
+               }
+           }
+       }
 }
 
 // MARK: - Main View
@@ -237,4 +214,3 @@ struct RegionRowView: View {
         }
     }
 }
-
