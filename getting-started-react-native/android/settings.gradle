@@ -1,0 +1,17 @@
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+
+// Ensure all modules resolve dependencies from these repositories
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+	repositories {
+		google()
+		mavenCentral()
+		maven { url = uri("https://api.mapbox.com/downloads/v2/releases/maven") }
+	}
+}
+
+rootProject.name = 'MapboxApp'
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
