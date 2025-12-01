@@ -1,17 +1,18 @@
 package com.example.mapbox_offline
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.mapbox.geojson.Point
 import com.mapbox.maps.CoordinateBounds
+import com.mapbox.common.MapboxOptions
+import com.mapbox.common.TileStore
 import com.mapbox.common.TileRegion
-import android.util.Log
+import com.mapbox.maps.mapsOptions
 
 class TileRegionDownloadViewModel : ViewModel() {
-    private val TAG = "TileRegionVM"
-
     var downloadingRegions by mutableStateOf(setOf<String>())
         private set
 
@@ -20,6 +21,10 @@ class TileRegionDownloadViewModel : ViewModel() {
 
     var refreshTrigger by mutableStateOf(false)
         private set
+
+    var downloadedRegions by mutableStateOf<Map<String, Boolean>>(emptyMap())
+    var regionSizes by mutableStateOf<Map<String, Double>>(emptyMap())
+    private val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore
 
     val regions = listOf(
         OfflineRegion(
@@ -48,6 +53,31 @@ class TileRegionDownloadViewModel : ViewModel() {
         )
     )
 
+    init {
+        // Check download status for all regions on initialization
+        regions.forEach { checkIfDownloaded(it.id) }
+    }
+
+    
+
+    fun checkIfDownloaded(regionId: String) {
+        tileStore?.getTileRegion(regionId) { result ->
+            if (result.isValue) {
+                val tileRegion: TileRegion? = result.value
+                if (tileRegion != null) {
+                    downloadedRegions = downloadedRegions + (regionId to true)
+                    regionSizes = regionSizes + (regionId to (tileRegion.completedResourceSize.toDouble() / (1024.0 * 1024.0)))
+                } else {
+                    downloadedRegions = downloadedRegions + (regionId to false)
+                    regionSizes = regionSizes + (regionId to 0.0)
+                }
+            } else {
+                downloadedRegions = downloadedRegions + (regionId to false)
+                regionSizes = regionSizes + (regionId to 0.0)
+            }
+        }
+    }
+
     fun downloadRegion(region: OfflineRegion) {
         OfflineRegionManager.downloadRegion(
             region = region,
@@ -65,10 +95,10 @@ class TileRegionDownloadViewModel : ViewModel() {
                 when {
                     result.isSuccess -> {
                         val tileRegion: TileRegion? = result.getOrNull()
-                        Log.i(TAG, "Downloaded ${region.name}: ${tileRegion?.completedResourceSize}")
+                        Log.i("TileRegionVM", "Downloaded ${region.name}: ${tileRegion?.completedResourceSize}")
                     }
                     result.isFailure -> {
-                        Log.e(TAG, "Failed to download ${region.name}: ${result.exceptionOrNull()}")
+                        Log.e("TileRegionVM", "Failed to download ${region.name}: ${result.exceptionOrNull()}")
                     }
                 }
             }
@@ -80,6 +110,8 @@ class TileRegionDownloadViewModel : ViewModel() {
             downloadingRegions = emptySet()
             downloadProgress = emptyMap()
             refreshTrigger = !refreshTrigger
+            // Re-check all regions after clearing
+            regions.forEach { checkIfDownloaded(it.id) }
         }
     }
 }

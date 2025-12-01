@@ -1,6 +1,5 @@
 package com.example.mapbox_offline
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,15 +21,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.mapbox.common.MapboxOptions
-import com.mapbox.common.TileStore
-import com.mapbox.common.TileRegion
-import com.mapbox.maps.mapsOptions
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TileRegionDownloadScreen(
-    viewModel: TileRegionDownloadViewModel = TileRegionDownloadViewModel(),
+    viewModel: TileRegionDownloadViewModel = viewModel(),
     onDone: () -> Unit = {}
 ) {
     Scaffold(
@@ -61,6 +57,9 @@ fun TileRegionDownloadScreen(
                     isDownloading = viewModel.downloadingRegions.contains(region.id),
                     progress = viewModel.downloadProgress[region.id] ?: 0f,
                     refreshTrigger = viewModel.refreshTrigger,
+                    isDownloaded = viewModel.downloadedRegions[region.id] ?: false,
+                    sizeInMB = viewModel.regionSizes[region.id] ?: 0.0,
+                    viewModel = viewModel,
                     onDownload = { viewModel.downloadRegion(region) }
                 )
                 Divider()
@@ -75,42 +74,18 @@ fun RegionRow(
     isDownloading: Boolean,
     progress: Float,
     refreshTrigger: Boolean,
+    isDownloaded: Boolean,
+    sizeInMB: Double,
+    viewModel: TileRegionDownloadViewModel,
     onDownload: () -> Unit
 ) {
-    var isDownloaded by remember { mutableStateOf(false) }
-    var sizeInMB by remember { mutableStateOf(0.0) }
-    val TAG = "RegionRow-${region.id}"
-    val tileStore: TileStore? = MapboxOptions.mapsOptions.tileStore!!
-
-
-    fun checkIfDownloaded() {
-        try {
-            tileStore?.getTileRegion(region.id) { result ->
-                if (result.isValue) {
-                    val tileRegion: TileRegion? = result.value
-                    if (tileRegion != null) {
-                        isDownloaded = true
-                        sizeInMB = tileRegion.completedResourceSize.toDouble() / (1024.0 * 1024.0)
-                    } else {
-                        isDownloaded = false
-                        sizeInMB = 0.0
-                    }
-                } else {
-                    isDownloaded = false
-                    sizeInMB = 0.0
-                }
-            }
-        } catch (e: Throwable) {
-            Log.w(TAG, "checkIfDownloaded failed: ${e.message}")
-            isDownloaded = false
-            sizeInMB = 0.0
+    LaunchedEffect(key1 = isDownloading, key2 = refreshTrigger) {
+        if (!isDownloading) {
+            viewModel.checkIfDownloaded(region.id)
         }
     }
 
-    LaunchedEffect(key1 = isDownloading, key2 = refreshTrigger) {
-        // when row appears or download state changes, re-check
-        checkIfDownloaded()
-    }
+    val TAG = "RegionRow-${region.id}"
 
     Row(
         modifier = Modifier
