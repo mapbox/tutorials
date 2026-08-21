@@ -10,16 +10,21 @@ The app demonstrates the use of [`NavigationView`](https://docs.mapbox.com/andro
 - A [Mapbox Account](https://console.mapbox.com) and Access Token
 - Android Studio
 
-#### Add your Access Token
-Mapbox's Navigation SDK is hosted on a private Maven repository, so getting the project to build requires **two** tokens:
+#### Configure your download token
+Mapbox's Navigation SDK is hosted on a private Maven repository, so getting the project to build requires a **secret** token with the `Downloads:Read` scope, used only by Gradle to download the SDK. Add it to `~/.gradle/gradle.properties` (outside this repo, never committed):
+```properties
+MAPBOX_DOWNLOADS_TOKEN=YOUR_SECRET_TOKEN
+```
 
-- A **secret** token with the `Downloads:Read` scope, used only by Gradle to download the SDK. Add it to `~/.gradle/gradle.properties` (outside this repo, never committed):
-  ```properties
-  MAPBOX_DOWNLOADS_TOKEN=YOUR_SECRET_TOKEN
-  ```
-- A **public** token, used by the app at runtime. Add it to `local.properties` in the project root (already gitignored):
-  ```properties
-  MAPBOX_PUBLIC_TOKEN=YOUR_PUBLIC_TOKEN
-  ```
+#### Configure your public access token
+In the project explorer, right-click the `app/src/main/res/values` folder and select **New > Values Resource File**, name it `mapbox_access_token.xml`, and add your public access token:
+
+`app/src/main/res/values/mapbox_access_token.xml`
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mapbox_access_token" translatable="false">YOUR_MAPBOX_ACCESS_TOKEN</string>
+</resources>
+```
 
 Find both tokens in the [Mapbox Console](https://console.mapbox.com).
